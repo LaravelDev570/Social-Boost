@@ -31,7 +31,7 @@
                         <i class="bi bi-activity fs-5"></i>
                     </div>
                 </div>
-                <h2 class="fw-bold mb-1">0</h2>
+                <h2 class="fw-bold mb-1">{{ $stats['active_requests'] ?? 0 }}</h2>
                 <span class="text-warning small">In Progress / Pending</span>
             </div>
         </div>
@@ -47,7 +47,7 @@
                         <i class="bi bi-check-circle-fill fs-5"></i>
                     </div>
                 </div>
-                <h2 class="fw-bold mb-1">0</h2>
+                <h2 class="fw-bold mb-1">{{ $stats['completed_requests'] ?? 0 }}</h2>
                 <span class="text-success small">Successfully delivered</span>
             </div>
         </div>
@@ -63,7 +63,7 @@
                         <i class="bi bi-chat-dots-fill fs-5"></i>
                     </div>
                 </div>
-                <h2 class="fw-bold mb-1">0</h2>
+                <h2 class="fw-bold mb-1">{{ $stats['messages'] ?? 0 }}</h2>
                 <span class="text-info small">Unread conversations</span>
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="card card-glass border-0 h-100">
             <div class="card-header bg-transparent border-secondary py-3 d-flex justify-content-between align-items-center">
                 <h6 class="mb-0 fw-bold">Recent Requests</h6>
-                <a href="#" class="btn btn-sm btn-outline-primary rounded-pill px-3">View All</a>
+                <a href="{{ route('admin.requests.index') }}" class="btn btn-sm btn-outline-primary rounded-pill px-3">View All</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -91,22 +91,35 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($recent_requests as $req)
+                            <tr>
+                                <td class="ps-4 text-primary">{{ $req->uuid }}</td>
+                                <td>{{ $req->user->name }}</td>
+                                <td>{{ $req->service->name }}</td>
+                                <td>
+                                    @php
+                                        $badgeClass = match($req->status) {
+                                            'Pending' => 'bg-secondary',
+                                            'In Progress' => 'bg-warning text-dark',
+                                            'Waiting for User' => 'bg-info text-dark',
+                                            'Completed' => 'bg-success',
+                                            'Cancelled' => 'bg-danger',
+                                            default => 'bg-secondary',
+                                        };
+                                    @endphp
+                                    <span class="badge {{ $badgeClass }}">{{ $req->status }}</span>
+                                </td>
+                                <td class="pe-4 text-end">
+                                    <a href="{{ route('admin.requests.show', $req) }}" class="btn btn-sm btn-primary rounded-pill px-3">Manage</a>
+                                </td>
+                            </tr>
+                            @empty
                             <tr>
                                 <td colspan="5" class="text-center py-4 text-muted">
                                     No recent requests found.
                                 </td>
                             </tr>
-                            <!-- Example Row
-                            <tr>
-                                <td class="ps-4 text-primary">#REQ-1029</td>
-                                <td>John Doe</td>
-                                <td>TikTok Configuration</td>
-                                <td><span class="badge bg-warning text-dark">Pending</span></td>
-                                <td class="pe-4 text-end">
-                                    <button class="btn btn-sm btn-primary rounded-pill">Manage</button>
-                                </td>
-                            </tr>
-                            -->
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -145,8 +158,8 @@
                 <div class="mt-4">
                     <h6 class="fw-bold mb-3">Quick Actions</h6>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-outline-info text-start"><i class="bi bi-plus-circle me-2"></i> Add New Service</button>
-                        <button class="btn btn-outline-light text-start"><i class="bi bi-sliders me-2"></i> Update Site Settings</button>
+                        <a href="{{ route('admin.services.create') }}" class="btn btn-outline-info text-start"><i class="bi bi-plus-circle me-2"></i> Add New Service</a>
+                        <a href="{{ route('admin.settings.index') }}" class="btn btn-outline-light text-start"><i class="bi bi-sliders me-2"></i> Update Site Settings</a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
 @section('content')
 <div class="card card-glass border-0 fade-in-up">
     <div class="card-header bg-transparent border-secondary py-3 d-flex justify-content-between align-items-center">
-        <h6 class="mb-0 fw-bold">All Services</h6>
+        <h6 class="mb-0 fw-bold text-white">All Services</h6>
         <a href="{{ route('admin.services.create') }}" class="btn btn-sm btn-primary rounded-pill px-3">
             <i class="bi bi-plus-lg me-1"></i> Add Service
         </a>
@@ -20,7 +20,7 @@
         @endif
         
         <div class="table-responsive">
-            <table class="table table-dark table-hover mb-0 align-middle">
+            <table class="table table-dark table-hover mb-0 align-middle dt-table">
                 <thead class="text-secondary small">
                     <tr>
                         <th class="ps-4">ID</th>

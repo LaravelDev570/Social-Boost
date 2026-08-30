@@ -14,6 +14,24 @@ body {
     color: #e2e8f0;
 }
 
+ /* Ensure form labels and inputs are always visible */
+.form-label { color: #e2e8f0 !important; }
+.form-control::placeholder { color: #64748b; }
+.form-control:read-only { color: #94a3b8; }
+.form-text { color: #64748b; }
+
+/* Dropdown hover */
+.hover-dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Fix form-switch toggle colors in dark mode */
+.form-check-input:checked {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
 .font-inter {
     font-family: 'Inter', sans-serif;
 }
