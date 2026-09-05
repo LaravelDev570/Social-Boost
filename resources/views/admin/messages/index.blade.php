@@ -11,38 +11,39 @@
         <div class="card card-glass border-0 h-100">
             <div class="card-header bg-transparent border-secondary py-3 d-flex justify-content-between align-items-center">
                 <h6 class="mb-0 fw-bold text-white">Conversations</h6>
-                <span class="badge bg-primary rounded-pill">5</span>
             </div>
-            <div class="card-body p-0">
+            <div class="card-body p-0 overflow-auto" style="max-height: 100%;">
                 <div class="list-group list-group-flush bg-transparent">
-
-                    @php
-                        $clients = [
-                            ['name' => 'Regular User', 'req' => 'TikTok Setup', 'time' => '2 min ago', 'unread' => 2],
-                            ['name' => 'Ahmad Raza', 'req' => 'YouTube SEO', 'time' => '1 hr ago', 'unread' => 0],
-                            ['name' => 'Sara Khan', 'req' => 'Instagram Branding', 'time' => 'Yesterday', 'unread' => 1],
-                            ['name' => 'James W.', 'req' => 'LinkedIn Profile', 'time' => '2 days ago', 'unread' => 0],
-                        ];
-                    @endphp
-
-                    @foreach($clients as $client)
-                    <a href="#" class="list-group-item list-group-item-action bg-transparent border-secondary text-light py-3 px-4">
+                    @forelse($users as $client)
+                    <a href="{{ route('admin.messages.index', ['user_id' => $client->id]) }}" 
+                       class="list-group-item list-group-item-action border-secondary py-3 px-4 {{ $activeUser && $activeUser->id == $client->id ? 'bg-primary bg-opacity-10 border-start border-4 border-primary' : 'bg-transparent text-light' }}">
                         <div class="d-flex align-items-center gap-3">
-                            <img src="https://ui-avatars.com/api/?name={{ urlencode($client['name']) }}&background=334155&color=94a3b8"
-                                 class="rounded-circle flex-shrink-0" width="40" height="40">
+                            <div class="position-relative">
+                                <img src="{{ $client->avatar ? Storage::url($client->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($client->name).'&background=334155&color=94a3b8' }}"
+                                     class="rounded-circle flex-shrink-0" width="40" height="40" style="object-fit:cover;">
+                                @if($client->isOnline())
+                                    <span class="position-absolute bottom-0 end-0 p-1 bg-success border border-dark rounded-circle" title="Online">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                @endif
+                            </div>
                             <div class="flex-grow-1 overflow-hidden">
                                 <div class="d-flex justify-content-between">
-                                    <strong class="small">{{ $client['name'] }}</strong>
-                                    <span class="text-secondary" style="font-size:11px;">{{ $client['time'] }}</span>
+                                    <strong class="small {{ $activeUser && $activeUser->id == $client->id ? 'text-primary' : '' }}">{{ $client->name }}</strong>
                                 </div>
-                                <p class="text-secondary small mb-0 text-truncate">Re: {{ $client['req'] }}</p>
+                                <p class="text-secondary small mb-0 text-truncate">
+                                    @if($client->isOnline())
+                                        <span class="text-success small">Online</span>
+                                    @else
+                                        <span class="small">Last seen: {{ $client->last_seen ? $client->last_seen->diffForHumans() : 'Never' }}</span>
+                                    @endif
+                                </p>
                             </div>
-                            @if($client['unread'] > 0)
-                                <span class="badge bg-primary rounded-pill">{{ $client['unread'] }}</span>
-                            @endif
                         </div>
                     </a>
-                    @endforeach
+                    @empty
+                    <div class="p-4 text-center text-secondary small">No users found.</div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -50,77 +51,93 @@
 
     <!-- Chat Window -->
     <div class="col-md-8">
+        @if($activeUser)
         <div class="card card-glass border-0 h-100 d-flex flex-column">
             <div class="card-header bg-transparent border-secondary py-3 d-flex align-items-center gap-3">
-                <img src="https://ui-avatars.com/api/?name=Regular+User&background=60a5fa&color=fff"
-                     class="rounded-circle" width="38" height="38">
+                <img src="{{ $activeUser->avatar ? Storage::url($activeUser->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($activeUser->name).'&background=60a5fa&color=fff' }}"
+                     class="rounded-circle" width="38" height="38" style="object-fit:cover;">
                 <div>
-                    <h6 class="mb-0 fw-bold">Regular User</h6>
-                    <small class="text-secondary">Re: TikTok Setup &mdash; Request <span class="text-primary">REQ-SAMPLE1</span></small>
+                    <h6 class="mb-0 fw-bold text-white">{{ $activeUser->name }}</h6>
+                    <small class="text-secondary">
+                        @if($activeUser->isOnline())
+                            <i class="bi bi-circle-fill text-success" style="font-size:8px;"></i> Online
+                        @else
+                            <i class="bi bi-clock me-1"></i>Last seen {{ $activeUser->last_seen ? $activeUser->last_seen->diffForHumans() : 'Never' }}
+                        @endif
+                    </small>
                 </div>
             </div>
-
-            <div class="card-body flex-grow-1 overflow-auto p-4" style="max-height:400px;" id="adminChatBox">
-                <!-- Client Message -->
-                <div class="d-flex gap-3 mb-4">
-                    <img src="https://ui-avatars.com/api/?name=Regular+User&background=60a5fa&color=fff"
-                         class="rounded-circle align-self-start" width="35" height="35">
-                    <div>
-                        <div class="bg-dark border border-secondary rounded-3 p-3" style="max-width:400px;">
-                            <p class="mb-1 small">Hello! I've submitted my TikTok setup request. Can you confirm when work will begin?</p>
+            
+            <div class="card-body p-4 overflow-auto d-flex flex-column gap-3" id="chatBox">
+                @forelse($messages as $msg)
+                    @if($msg->sender_id === auth()->id())
+                        <!-- Sent Message -->
+                        <div class="d-flex justify-content-end mb-3">
+                            <div class="d-flex flex-column align-items-end" style="max-width: 65%;">
+                                <div class="bg-primary text-white p-3 shadow-sm" style="border-radius: 18px 18px 0px 18px; font-size: 0.95rem;">
+                                    {{ $msg->message }}
+                                </div>
+                                <small class="text-secondary mt-1" style="font-size: 0.75rem;">
+                                    {{ $msg->created_at->format('h:i A') }}
+                                    @if($msg->is_read)
+                                        <i class="bi bi-check-all text-primary ms-1 fs-6"></i>
+                                    @else
+                                        <i class="bi bi-check ms-1 fs-6"></i>
+                                    @endif
+                                </small>
+                            </div>
                         </div>
-                        <small class="text-muted" style="font-size:11px;">Regular User &bull; Today, 10:32 AM</small>
-                    </div>
-                </div>
-                <!-- Admin Message -->
-                <div class="d-flex gap-3 mb-4 flex-row-reverse">
-                    <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=3b82f6&color=fff"
-                         class="rounded-circle align-self-start" width="35" height="35">
-                    <div class="text-end">
-                        <div class="bg-primary rounded-3 p-3" style="max-width:400px;">
-                            <p class="mb-1 small text-white">Hi! Yes, we've reviewed your request and work begins tomorrow morning. We'll update you as we progress.</p>
+                    @else
+                        <!-- Received Message -->
+                        <div class="d-flex justify-content-start mb-3">
+                            <img src="{{ $activeUser->avatar ? Storage::url($activeUser->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($activeUser->name).'&background=334155&color=94a3b8' }}"
+                                 class="rounded-circle me-2 mt-1" width="32" height="32" style="object-fit:cover;">
+                            <div class="d-flex flex-column align-items-start" style="max-width: 65%;">
+                                <div class="bg-dark border border-secondary text-light p-3 shadow-sm" style="border-radius: 18px 18px 18px 0px; font-size: 0.95rem;">
+                                    {{ $msg->message }}
+                                </div>
+                                <small class="text-secondary mt-1" style="font-size: 0.75rem;">{{ $msg->created_at->format('h:i A') }}</small>
+                            </div>
                         </div>
-                        <small class="text-muted" style="font-size:11px;">You &bull; Today, 10:35 AM</small>
+                    @endif
+                @empty
+                    <div class="text-center text-secondary my-auto">
+                        <i class="bi bi-chat-dots fs-1 mb-2 d-block"></i>
+                        <p class="small">No messages yet. Start the conversation!</p>
                     </div>
-                </div>
+                @endforelse
             </div>
 
             <div class="card-footer bg-transparent border-secondary p-3">
-                <div class="d-flex gap-3 align-items-center">
-                    <input type="text" id="adminMsgInput" class="form-control bg-dark text-light border-secondary"
-                           placeholder="Type a reply..." autocomplete="off">
-                    <button class="btn btn-primary rounded-pill px-4" onclick="adminSend()">
-                        <i class="bi bi-send"></i>
-                    </button>
-                </div>
-                <p class="text-secondary text-center mt-2 mb-0" style="font-size:12px;">
-                    <i class="bi bi-info-circle me-1"></i>Full real-time messaging is coming in Phase 5.
-                </p>
+                <form action="{{ route('admin.messages.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="receiver_id" value="{{ $activeUser->id }}">
+                    <div class="input-group">
+                        <input type="text" name="message" class="form-control bg-dark text-light border-secondary focus-ring focus-ring-primary py-2" placeholder="Type your message here..." required autofocus autocomplete="off">
+                        <button class="btn btn-primary px-4 fw-bold" type="submit">
+                            <i class="bi bi-send-fill me-1"></i> Send
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
+        @else
+        <div class="card card-glass border-0 h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="text-center text-secondary">
+                <i class="bi bi-chat-dots fs-1 mb-2 d-block"></i>
+                <p>Select a conversation to start messaging</p>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
-
 @push('scripts')
 <script>
-function adminSend() {
-    const input = document.getElementById('adminMsgInput');
-    const box = document.getElementById('adminChatBox');
-    if (!input.value.trim()) return;
-    box.insertAdjacentHTML('beforeend', `
-        <div class="d-flex gap-3 mb-4 flex-row-reverse">
-            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=3b82f6&color=fff" class="rounded-circle align-self-start" width="35" height="35">
-            <div class="text-end">
-                <div class="bg-primary rounded-3 p-3" style="max-width:400px;">
-                    <p class="mb-1 small text-white">${input.value}</p>
-                </div>
-                <small class="text-muted" style="font-size:11px;">You &bull; Just now</small>
-            </div>
-        </div>`);
-    box.scrollTop = box.scrollHeight;
-    input.value = '';
-}
-document.getElementById('adminMsgInput')?.addEventListener('keydown', e => { if (e.key === 'Enter') adminSend(); });
+    // Scroll to bottom of chat
+    const chatBox = document.getElementById('chatBox');
+    if (chatBox) {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
 </script>
 @endpush
 @endsection

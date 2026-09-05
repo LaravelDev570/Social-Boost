@@ -16,10 +16,12 @@
                 @method('PUT')
             @endif
             
-            <div class="mb-3">
-                <label for="name" class="form-label text-light small fw-bold">Category Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control bg-dark text-light border-secondary focus-ring focus-ring-primary" id="name" name="name" value="{{ old('name', $category->name ?? '') }}" required>
-                @error('name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+            <div class="row g-3 mb-4">
+                <div class="col-md-8">
+                    <label for="name" class="form-label text-light small fw-bold"><i class="bi bi-tag me-1"></i> Category Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary focus-ring focus-ring-primary" id="name" name="name" value="{{ old('name', $category->name ?? '') }}" placeholder="e.g. YouTube Services" required>
+                    @error('name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                </div>
             </div>
             
             <div class="mb-4">

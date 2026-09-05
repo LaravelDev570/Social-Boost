@@ -30,33 +30,46 @@
                     @method('PUT')
 
                     <!-- Avatar Upload -->
-                    <div class="mb-4 text-center">
-                        <div class="position-relative d-inline-block">
+                    <div class="mb-5 text-center">
+                        <div class="position-relative d-inline-block mb-3">
                             <img id="avatarPreview"
-                                 src="{{ $user->avatar ? Storage::url($user->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode($user->name) . '&background=3b82f6&color=fff&size=128' }}"
+                                 src="{{ $user->avatar ? Storage::url($user->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode($user->name) . '&background=3b82f6&color=fff&size=200' }}"
                                  alt="Profile Photo"
-                                 class="rounded-circle border border-2 border-primary"
-                                 style="width:100px; height:100px; object-fit:cover;">
-                            <label for="avatarInput" class="position-absolute bottom-0 end-0 bg-primary rounded-circle d-flex align-items-center justify-content-center cursor-pointer"
-                                   style="width:32px; height:32px; cursor:pointer;" title="Change Photo">
-                                <i class="bi bi-camera-fill text-white" style="font-size:14px;"></i>
+                                 class="rounded-circle shadow-sm"
+                                 style="width:130px; height:130px; object-fit:cover; border: 3px solid rgba(255,255,255,0.1);">
+                            
+                            <label for="avatarInput" class="position-absolute bottom-0 end-0 bg-primary rounded-circle d-flex align-items-center justify-content-center shadow-lg"
+                                   style="width:36px; height:36px; cursor:pointer; right: -5px; bottom: 5px; transition: all 0.2s;" title="Upload New Photo" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="bi bi-camera-fill text-white fs-6"></i>
                             </label>
+                            
                             <input type="file" id="avatarInput" name="avatar" class="d-none" accept="image/jpg,image/jpeg,image/png,image/webp"
                                    onchange="previewAvatar(this)">
                         </div>
-                        <div class="text-secondary mt-2" style="font-size:12px;">
-                            Click the camera icon to upload a photo (JPG/PNG/WEBP, max 2MB)
+                        
+                        <div class="d-flex justify-content-center gap-2 align-items-center">
+                            <span class="text-secondary small">JPEG, PNG or WEBP (Max 2MB)</span>
+                            @if($user->avatar)
+                                <span class="text-secondary small">&bull;</span>
+                                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1" style="font-size: 11px;" onclick="removeAvatar()">
+                                    <i class="bi bi-x-circle me-1"></i>Remove
+                                </button>
+                            @endif
                         </div>
+                        <input type="hidden" name="remove_avatar" id="removeAvatarInput" value="0">
                         @error('avatar')
-                            <div class="text-danger small mt-1">{{ $message }}</div>
+                            <div class="text-danger small mt-2">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-light small fw-bold">Full Name <span class="text-danger">*</span></label>
-                        <input type="text" name="name" value="{{ old('name', $user->name) }}"
-                               class="form-control bg-dark text-light border-secondary @error('name') border-danger @enderror"
-                               minlength="2" maxlength="100" required>
+                        <div class="d-flex justify-content-between">
+                            <label class="form-label text-light small fw-bold">Full Name <span class="text-danger">*</span></label>
+                            <span class="text-muted small" id="nameCount">0/15</span>
+                        </div>
+                        <input type="text" name="name" id="nameInput" value="{{ old('name', $user->name) }}"
+                               class="form-control form-control-sm bg-dark text-light border-secondary @error('name') border-danger @enderror"
+                               minlength="8" maxlength="15" pattern="[A-Za-z\s]+" title="Only English letters and spaces allowed" required>
                         @error('name')
                             <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ $message }}</div>
                         @enderror
@@ -65,7 +78,7 @@
                     <div class="mb-3">
                         <label class="form-label text-light small fw-bold">Email Address <span class="text-danger">*</span></label>
                         <input type="email" name="email" value="{{ old('email', $user->email) }}"
-                               class="form-control bg-dark text-light border-secondary @error('email') border-danger @enderror"
+                               class="form-control form-control-sm bg-dark text-light border-secondary @error('email') border-danger @enderror"
                                required>
                         @error('email')
                             <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ $message }}</div>
@@ -73,16 +86,19 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label text-light small fw-bold">Phone Number</label>
-                        <div class="input-group">
+                        <div class="d-flex justify-content-between">
+                            <label class="form-label text-light small fw-bold">Phone Number</label>
+                            <span class="text-muted small" id="phoneCount">0/13</span>
+                        </div>
+                        <div class="input-group input-group-sm">
                             <span class="input-group-text bg-dark border-secondary text-secondary">
                                 <i class="bi bi-telephone"></i>
                             </span>
-                            <input type="text" name="phone" value="{{ old('phone', $user->phone ?? '') }}"
-                                   placeholder="+92 370 4635765"
-                                   class="form-control bg-dark text-light border-secondary @error('phone') border-danger @enderror">
+                            <input type="text" name="phone" id="phoneInput" value="{{ old('phone', $user->phone ?? '') }}"
+                                   placeholder="3001234567890" maxlength="13" pattern="\d{13}" title="Exactly 13 digits required"
+                                   class="form-control form-control-sm bg-dark text-light border-secondary @error('phone') border-danger @enderror">
                         </div>
-                        <div class="form-text text-muted small">Format: +92 300 1234567 (7–20 digits)</div>
+                        <div class="form-text text-muted" style="font-size:11px;">Must be exactly 13 digits (e.g. 923001234567)</div>
                         @error('phone')
                             <div class="text-danger small mt-1"><i class="bi bi-exclamation-circle me-1"></i>{{ $message }}</div>
                         @enderror
@@ -217,16 +233,42 @@
 
 @push('scripts')
 <script>
-// Avatar preview
+// Live Counters
+const nameInput = document.getElementById('nameInput');
+const nameCount = document.getElementById('nameCount');
+const phoneInput = document.getElementById('phoneInput');
+const phoneCount = document.getElementById('phoneCount');
+
+if(nameInput) {
+    nameCount.textContent = nameInput.value.length + '/15';
+    nameInput.addEventListener('input', () => { nameCount.textContent = nameInput.value.length + '/15'; });
+}
+if(phoneInput) {
+    phoneCount.textContent = phoneInput.value.length + '/13';
+    phoneInput.addEventListener('input', () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, ''); // Ensure only numbers
+        phoneCount.textContent = phoneInput.value.length + '/13';
+    });
+}
+
+// Avatar preview & remove
 function previewAvatar(input) {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
         reader.onload = e => {
             document.getElementById('avatarPreview').src = e.target.result;
             document.getElementById('sideAvatar').src = e.target.result;
+            document.getElementById('removeAvatarInput').value = '0';
         };
         reader.readAsDataURL(input.files[0]);
     }
+}
+function removeAvatar() {
+    const defaultImg = 'https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&background=3b82f6&color=fff&size=128';
+    document.getElementById('avatarPreview').src = defaultImg;
+    document.getElementById('sideAvatar').src = defaultImg;
+    document.getElementById('avatarInput').value = '';
+    document.getElementById('removeAvatarInput').value = '1';
 }
 
 // Bio counter

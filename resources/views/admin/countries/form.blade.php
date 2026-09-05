@@ -16,16 +16,18 @@
                 @method('PUT')
             @endif
             
-            <div class="mb-3">
-                <label for="name" class="form-label text-light small fw-bold">Country Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control bg-dark text-light border-secondary focus-ring focus-ring-primary" id="name" name="name" value="{{ old('name', $country->name ?? '') }}" required>
-                @error('name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
-            </div>
-            
-            <div class="mb-4">
-                <label for="code" class="form-label text-light small fw-bold">Country Code (e.g. US, UK, CA)</label>
-                <input type="text" class="form-control bg-dark text-light border-secondary focus-ring focus-ring-primary" id="code" name="code" value="{{ old('code', $country->code ?? '') }}">
-                @error('code')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <label for="name" class="form-label text-light small fw-bold"><i class="bi bi-globe me-1"></i> Country Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary focus-ring focus-ring-primary" id="name" name="name" value="{{ old('name', $country->name ?? '') }}" placeholder="e.g. United States" required>
+                    @error('name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                </div>
+                
+                <div class="col-md-6">
+                    <label for="code" class="form-label text-light small fw-bold"><i class="bi bi-upc me-1"></i> Country Code</label>
+                    <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary focus-ring focus-ring-primary" id="code" name="code" value="{{ old('code', $country->code ?? '') }}" placeholder="e.g. US, UK, CA">
+                    @error('code')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                </div>
             </div>
             
             <div class="mb-4 form-check form-switch">

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
         'role',
         'status',
+        'last_seen',
     ];
 
     /**
@@ -48,6 +49,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'last_seen' => 'datetime',
             'password' => 'hashed',
         ];
     }
@@ -55,5 +57,13 @@ class User extends Authenticatable
     public function serviceRequests()
     {
         return $this->hasMany(ServiceRequest::class);
+    }
+
+    /**
+     * Check if user is online (active in the last 3 minutes).
+     */
+    public function isOnline()
+    {
+        return $this->last_seen && $this->last_seen > now()->subMinutes(3);
     }
 }

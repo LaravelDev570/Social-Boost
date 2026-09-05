@@ -26,38 +26,38 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label text-light small fw-bold">Site Name</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                            <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary"
                                    name="site_name" value="SocialBoost">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-light small fw-bold">Contact Email</label>
-                            <input type="email" class="form-control bg-dark text-light border-secondary"
+                            <input type="email" class="form-control form-control-sm bg-dark text-light border-secondary"
                                    name="contact_email" value="support@socialboost.com">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-light small fw-bold">WhatsApp Number</label>
-                            <div class="input-group">
+                            <div class="input-group input-group-sm">
                                 <span class="input-group-text bg-dark border-secondary text-success">
                                     <i class="bi bi-whatsapp"></i>
                                 </span>
                                 <input type="text" class="form-control bg-dark text-light border-secondary"
                                        name="whatsapp_number" value="+923704635765">
                             </div>
-                            <div class="form-text text-muted">Include country code (e.g. +923704635765)</div>
+                            <div class="form-text text-muted" style="font-size:11px;">Include country code (e.g. +923704635765)</div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-light small fw-bold">Support Hours</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                            <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary"
                                    name="support_hours" value="Mon–Fri, 9am–6pm (PKT)">
                         </div>
                         <div class="col-12">
                             <label class="form-label text-light small fw-bold">Site Tagline</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                            <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary"
                                    name="tagline" value="Professional Social Media Growth Services">
                         </div>
                         <div class="col-12">
                             <label class="form-label text-light small fw-bold">Homepage About Text</label>
-                            <textarea class="form-control bg-dark text-light border-secondary" name="about_text" rows="3">We professionally set up, optimize, and grow your TikTok, YouTube, and Instagram accounts using authorized strategies. No fakes. No shortcuts.</textarea>
+                            <textarea class="form-control form-control-sm bg-dark text-light border-secondary" name="about_text" rows="3">We professionally set up, optimize, and grow your TikTok, YouTube, and Instagram accounts using authorized strategies. No fakes. No shortcuts.</textarea>
                         </div>
                     </div>
 
@@ -80,16 +80,16 @@
                     <div class="row g-3">
                         <div class="col-12">
                             <label class="form-label text-light small fw-bold">Meta Title</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                            <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary"
                                    name="meta_title" value="SocialBoost — Professional TikTok & YouTube Growth Services">
                         </div>
                         <div class="col-12">
                             <label class="form-label text-light small fw-bold">Meta Description</label>
-                            <textarea class="form-control bg-dark text-light border-secondary" name="meta_description" rows="2">Professional social media setup and growth services for TikTok, YouTube, and Instagram. Serving US, UK, Canada, Australia.</textarea>
+                            <textarea class="form-control form-control-sm bg-dark text-light border-secondary" name="meta_description" rows="2">Professional social media setup and growth services for TikTok, YouTube, and Instagram. Serving US, UK, Canada, Australia.</textarea>
                         </div>
                         <div class="col-12">
                             <label class="form-label text-light small fw-bold">Meta Keywords</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary"
+                            <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary"
                                    name="meta_keywords" value="TikTok growth, YouTube SEO, Instagram branding, social media services">
                         </div>
                     </div>
@@ -150,12 +150,18 @@
             </div>
             <div class="card-body p-3">
                 <p class="text-secondary small mb-3">These actions are irreversible. Be very careful.</p>
-                <button class="btn btn-outline-danger btn-sm w-100 mb-2" onclick="return confirm('Clear all cache? This action cannot be undone.')">
-                    <i class="bi bi-trash me-2"></i>Clear Cache
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-100">
-                    <i class="bi bi-download me-2"></i>Export Database
-                </button>
+                <form action="{{ route('admin.settings.clear_cache') }}" method="POST" class="mb-2">
+                    @csrf
+                    <button class="btn btn-outline-danger btn-sm w-100" onclick="return confirm('Clear all cache? This action cannot be undone.')">
+                        <i class="bi bi-trash me-2"></i>Clear Cache
+                    </button>
+                </form>
+                <form action="{{ route('admin.settings.export_db') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-outline-secondary btn-sm w-100">
+                        <i class="bi bi-download me-2"></i>Export Database
+                    </button>
+                </form>
             </div>
         </div>
     </div>

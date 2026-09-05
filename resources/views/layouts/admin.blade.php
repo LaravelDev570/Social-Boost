@@ -127,9 +127,26 @@
         .dataTables_wrapper .dataTables_paginate .paginate_button { color: #94a3b8 !important; border-radius: 6px !important; border: none !important; }
         .dataTables_wrapper .dataTables_paginate .paginate_button.current { background: #3b82f6 !important; color: #fff !important; }
         .dataTables_wrapper .dataTables_paginate .paginate_button:hover { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+        .dataTables_wrapper { padding: 1.5rem !important; }
+        
+        /* Search Bar */
+        .topbar-search {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            color: #e2e8f0;
+            outline: none;
+            width: 250px;
+            transition: all 0.3s ease;
+        }
+        .topbar-search:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #3b82f6;
+        }
 
-        /* Fix DataTables overriding Bootstrap p-0 on card-body */
-        .dataTables_wrapper { padding: 1rem !important; }
+        /* Hover Dropdown */
+        .hover-dropdown:hover .dropdown-menu { display: block; margin-top: 0; }
         .dataTables_wrapper table.dataTable { padding: 0 !important; margin-top: 0.75rem !important; }
         .dt-table thead th { white-space: nowrap; }
     </style>
@@ -186,7 +203,12 @@
         <div>
             <h6 class="mb-0 fw-bold font-outfit">@yield('page_title', 'Dashboard')</h6>
         </div>
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search position-absolute text-muted" style="left: 12px; top: 50%; transform: translateY(-50%);"></i>
+                <input type="text" class="topbar-search ps-5" placeholder="Search everywhere...">
+            </div>
+            
             <!-- Notifications Dropdown -->
             <div class="dropdown hover-dropdown">
                 <a href="#" class="topbar-icon" data-bs-toggle="dropdown" title="Notifications">

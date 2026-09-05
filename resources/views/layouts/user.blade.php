@@ -77,6 +77,25 @@
         .dataTables_wrapper .dataTables_paginate .paginate_button.current { background: #3b82f6 !important; color: #fff !important; }
         .dataTables_wrapper .dataTables_paginate .paginate_button:hover { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
 
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover { background: rgba(59,130,246,0.2) !important; color: #93c5fd !important; }
+        .dataTables_wrapper { padding: 1.5rem !important; }
+
+        /* Search Bar */
+        .topbar-search {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            color: #e2e8f0;
+            outline: none;
+            width: 250px;
+            transition: all 0.3s ease;
+        }
+        .topbar-search:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #3b82f6;
+        }
+
         /* WhatsApp float */
         .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: #25d366; color: #fff; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 16px rgba(37,211,102,0.5); z-index: 9999; text-decoration: none; transition: transform 0.2s; }
         .whatsapp-float:hover { transform: scale(1.1); color: #fff; }
@@ -126,7 +145,12 @@
         <div>
             <h6 class="mb-0 fw-bold font-outfit">@yield('page_title', 'Dashboard')</h6>
         </div>
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-3">
+            <div class="position-relative d-none d-md-block">
+                <i class="bi bi-search position-absolute text-muted" style="left: 12px; top: 50%; transform: translateY(-50%);"></i>
+                <input type="text" class="topbar-search ps-5" placeholder="Search...">
+            </div>
+            
             <!-- Notifications Dropdown -->
             <div class="dropdown hover-dropdown">
                 <a href="{{ route('user.notifications.index') }}" class="topbar-icon" title="Notifications">
@@ -171,8 +195,8 @@
             </a>
             <div class="dropdown ms-1">
                 <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
-                    <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=60a5fa&color=fff"
-                         alt="user" width="34" height="34" class="rounded-circle">
+                    <img src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->name).'&background=60a5fa&color=fff' }}"
+                         alt="user" width="34" height="34" class="rounded-circle" style="object-fit:cover;">
                     <span class="d-none d-md-inline small fw-bold">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow border border-secondary mt-2">

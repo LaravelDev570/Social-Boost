@@ -6,129 +6,95 @@
 @section('content')
 <div class="row g-4 fade-in-up" style="height: calc(100vh - 140px);">
 
-    <!-- Conversation List -->
-    <div class="col-md-4">
-        <div class="card card-glass border-0 h-100">
-            <div class="card-header bg-transparent border-secondary py-3">
-                <h6 class="mb-0 fw-bold">Conversations</h6>
-            </div>
-            <div class="card-body p-0">
-                <div class="list-group list-group-flush bg-transparent">
-                    <!-- Admin Conversation -->
-                    <a href="#" class="list-group-item list-group-item-action bg-transparent border-secondary text-light py-3 px-4 active-convo">
-                        <div class="d-flex align-items-center gap-3">
-                            <img src="https://ui-avatars.com/api/?name=Admin&background=3b82f6&color=fff"
-                                 class="rounded-circle" width="40" height="40" alt="Admin">
-                            <div class="flex-grow-1 overflow-hidden">
-                                <div class="d-flex justify-content-between">
-                                    <strong class="small">SocialBoost Admin</strong>
-                                    <span class="text-secondary" style="font-size: 11px;">2 min ago</span>
-                                </div>
-                                <p class="text-secondary small mb-0 text-truncate">We will start working on your TikTok account shortly...</p>
-                            </div>
-                            <span class="badge bg-primary rounded-pill">2</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Chat Window -->
-    <div class="col-md-8">
+    <div class="col-md-12">
+        @if($admin)
         <div class="card card-glass border-0 h-100 d-flex flex-column">
             <div class="card-header bg-transparent border-secondary py-3 d-flex align-items-center gap-3">
-                <img src="https://ui-avatars.com/api/?name=Admin&background=3b82f6&color=fff"
-                     class="rounded-circle" width="38" height="38" alt="Admin">
+                <img src="{{ $admin->avatar ? Storage::url($admin->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($admin->name).'&background=3b82f6&color=fff' }}"
+                     class="rounded-circle" width="38" height="38" style="object-fit:cover;">
                 <div>
-                    <h6 class="mb-0 fw-bold">SocialBoost Admin</h6>
-                    <small class="text-success"><i class="bi bi-circle-fill me-1" style="font-size:8px;"></i>Online</small>
+                    <h6 class="mb-0 fw-bold text-white">{{ $admin->name }} (Admin)</h6>
+                    <small class="text-secondary">
+                        @if($admin->isOnline())
+                            <i class="bi bi-circle-fill text-success" style="font-size:8px;"></i> Online
+                        @else
+                            <i class="bi bi-clock me-1"></i>Last seen {{ $admin->last_seen ? $admin->last_seen->diffForHumans() : 'Never' }}
+                        @endif
+                    </small>
                 </div>
             </div>
-
-            <!-- Messages Area -->
-            <div class="card-body flex-grow-1 overflow-auto p-4" style="max-height: 420px;" id="chatBox">
-
-                <!-- Admin Message -->
-                <div class="d-flex gap-3 mb-4">
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=3b82f6&color=fff"
-                         class="rounded-circle align-self-start" width="35" height="35" alt="Admin">
-                    <div>
-                        <div class="bg-dark border border-secondary rounded-3 p-3" style="max-width: 400px;">
-                            <p class="mb-1 small">Hello! Thank you for submitting your request. We have received it and will review it shortly.</p>
+            
+            <div class="card-body p-4 overflow-auto d-flex flex-column gap-3" id="chatBox">
+                @forelse($messages as $msg)
+                    @if($msg->sender_id === auth()->id())
+                        <!-- Sent Message -->
+                        <div class="d-flex justify-content-end mb-3">
+                            <div class="d-flex flex-column align-items-end" style="max-width: 65%;">
+                                <div class="bg-primary text-white p-3 shadow-sm" style="border-radius: 18px 18px 0px 18px; font-size: 0.95rem;">
+                                    {{ $msg->message }}
+                                </div>
+                                <small class="text-secondary mt-1" style="font-size: 0.75rem;">
+                                    {{ $msg->created_at->format('h:i A') }}
+                                    @if($msg->is_read)
+                                        <i class="bi bi-check-all text-primary ms-1 fs-6"></i>
+                                    @else
+                                        <i class="bi bi-check ms-1 fs-6"></i>
+                                    @endif
+                                </small>
+                            </div>
                         </div>
-                        <small class="text-muted" style="font-size:11px;">Admin &bull; Today, 10:32 AM</small>
-                    </div>
-                </div>
-
-                <!-- User Message -->
-                <div class="d-flex gap-3 mb-4 flex-row-reverse">
-                    <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=60a5fa&color=fff"
-                         class="rounded-circle align-self-start" width="35" height="35" alt="Me">
-                    <div class="text-end">
-                        <div class="bg-primary rounded-3 p-3" style="max-width: 400px;">
-                            <p class="mb-1 small text-white">Great! Please let me know if you need any additional information from me.</p>
+                    @else
+                        <!-- Received Message -->
+                        <div class="d-flex justify-content-start mb-3">
+                            <img src="{{ $admin->avatar ? Storage::url($admin->avatar) : 'https://ui-avatars.com/api/?name='.urlencode($admin->name).'&background=3b82f6&color=fff' }}"
+                                 class="rounded-circle me-2 mt-1" width="32" height="32" style="object-fit:cover;">
+                            <div class="d-flex flex-column align-items-start" style="max-width: 65%;">
+                                <div class="bg-dark border border-secondary text-light p-3 shadow-sm" style="border-radius: 18px 18px 18px 0px; font-size: 0.95rem;">
+                                    {{ $msg->message }}
+                                </div>
+                                <small class="text-secondary mt-1" style="font-size: 0.75rem;">{{ $msg->created_at->format('h:i A') }}</small>
+                            </div>
                         </div>
-                        <small class="text-muted" style="font-size:11px;">You &bull; Today, 10:35 AM</small>
+                    @endif
+                @empty
+                    <div class="text-center text-secondary my-auto">
+                        <i class="bi bi-chat-dots fs-1 mb-2 d-block"></i>
+                        <p class="small">No messages yet. Send a message to contact Support!</p>
                     </div>
-                </div>
-
-                <!-- Admin Message -->
-                <div class="d-flex gap-3 mb-4">
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=3b82f6&color=fff"
-                         class="rounded-circle align-self-start" width="35" height="35" alt="Admin">
-                    <div>
-                        <div class="bg-dark border border-secondary rounded-3 p-3" style="max-width: 400px;">
-                            <p class="mb-1 small">We will start working on your TikTok account shortly. Please share your channel name and handle when ready.</p>
-                        </div>
-                        <small class="text-muted" style="font-size:11px;">Admin &bull; Today, 10:38 AM</small>
-                    </div>
-                </div>
-
+                @endforelse
             </div>
 
-            <!-- Input Box -->
             <div class="card-footer bg-transparent border-secondary p-3">
-                <div class="d-flex gap-3 align-items-center">
-                    <input type="text" id="msgInput" class="form-control bg-dark text-light border-secondary"
-                           placeholder="Type a message..." autocomplete="off">
-                    <button class="btn btn-primary rounded-pill px-4" onclick="sendMessage()">
-                        <i class="bi bi-send"></i>
-                    </button>
-                </div>
-                <p class="text-secondary text-center mt-3 mb-0" style="font-size:12px;">
-                    <i class="bi bi-info-circle me-1"></i>
-                    Full real-time messaging is coming in Phase 5. Use 
-                    <a href="https://wa.me/1234567890" target="_blank" class="text-success">WhatsApp</a> for urgent replies.
-                </p>
+                <form action="{{ route('user.messages.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="receiver_id" value="{{ $admin->id }}">
+                    <div class="input-group">
+                        <input type="text" name="message" class="form-control bg-dark text-light border-secondary focus-ring focus-ring-primary py-2" placeholder="Type your message here..." required autofocus autocomplete="off">
+                        <button class="btn btn-primary px-4 fw-bold" type="submit">
+                            <i class="bi bi-send-fill me-1"></i> Send
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
+        @else
+        <div class="card card-glass border-0 h-100 d-flex flex-column align-items-center justify-content-center">
+            <div class="text-center text-secondary">
+                <i class="bi bi-exclamation-triangle fs-1 mb-2 d-block"></i>
+                <p>System Administrator account not found.</p>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
-
+@push('scripts')
 <script>
-function sendMessage() {
-    const input = document.getElementById('msgInput');
+    // Scroll to bottom of chat
     const chatBox = document.getElementById('chatBox');
-    if (!input.value.trim()) return;
-
-    const msgHtml = `
-        <div class="d-flex gap-3 mb-4 flex-row-reverse">
-            <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=60a5fa&color=fff"
-                 class="rounded-circle align-self-start" width="35" height="35">
-            <div class="text-end">
-                <div class="bg-primary rounded-3 p-3" style="max-width: 400px;">
-                    <p class="mb-1 small text-white">${input.value}</p>
-                </div>
-                <small class="text-muted" style="font-size:11px;">You &bull; Just now</small>
-            </div>
-        </div>`;
-    chatBox.insertAdjacentHTML('beforeend', msgHtml);
-    chatBox.scrollTop = chatBox.scrollHeight;
-    input.value = '';
-}
-document.getElementById('msgInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') sendMessage();
-});
+    if (chatBox) {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
 </script>
+@endpush
 @endsection

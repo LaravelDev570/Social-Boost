@@ -16,23 +16,24 @@
                 @method('PUT')
             @endif
             
-            <div class="mb-3">
-                <label for="category_id" class="form-label text-light small fw-bold">Category <span class="text-danger">*</span></label>
-                <select class="form-select bg-dark text-light border-secondary focus-ring focus-ring-primary" id="category_id" name="category_id" required>
-                    <option value="" disabled selected>Select a Category</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ (old('category_id', $service->category_id ?? '') == $category->id) ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('category_id')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="name" class="form-label text-light small fw-bold">Service Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control bg-dark text-light border-secondary focus-ring focus-ring-primary" id="name" name="name" value="{{ old('name', $service->name ?? '') }}" required>
-                @error('name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <label for="name" class="form-label text-light small fw-bold"><i class="bi bi-box-seam me-1"></i> Service Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-sm bg-dark text-light border-secondary focus-ring focus-ring-primary" id="name" name="name" value="{{ old('name', $service->name ?? '') }}" required>
+                    @error('name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                </div>
+                <div class="col-md-6">
+                    <label for="category_id" class="form-label text-light small fw-bold"><i class="bi bi-tags me-1"></i> Category <span class="text-danger">*</span></label>
+                    <select class="form-select form-select-sm bg-dark text-light border-secondary focus-ring focus-ring-primary" id="category_id" name="category_id" required>
+                        <option value="">-- Select Category --</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ (old('category_id', $service->category_id ?? '')) == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                </div>
             </div>
             
             <div class="mb-4">

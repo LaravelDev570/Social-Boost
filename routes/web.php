@@ -9,6 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Lead Form Submission (Public)
+Route::post('/leads', [\App\Http\Controllers\LeadController::class, 'store'])->name('leads.store');
+
 // Authentication Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -31,17 +34,21 @@ Route::middleware('auth')->group(function () {
         Route::resource('countries', \App\Http\Controllers\Admin\CountryController::class)->except(['show']);
         
         // Users Management
-        Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->only(['index', 'edit', 'destroy']);
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->only(['index', 'edit', 'update', 'destroy']);
         Route::put('users/{user}/role', [\App\Http\Controllers\Admin\UserController::class, 'updateRole'])->name('users.update_role');
         
         // Admin Requests
         Route::get('/requests', [\App\Http\Controllers\Admin\RequestController::class, 'index'])->name('requests.index');
         Route::get('/requests/{request}', [\App\Http\Controllers\Admin\RequestController::class, 'show'])->name('requests.show');
         Route::put('/requests/{request}/status', [\App\Http\Controllers\Admin\RequestController::class, 'updateStatus'])->name('requests.update_status');
+        // Messages
+        Route::get('/messages', [\App\Http\Controllers\MessageController::class, 'index'])->name('messages.index');
+        Route::post('/messages', [\App\Http\Controllers\MessageController::class, 'store'])->name('messages.store');
         
-        // Placeholders for remaining modules
-        Route::get('/messages', function() { return view('admin.messages.index'); })->name('messages.index');
-        Route::get('/settings', function() { return view('admin.settings.index'); })->name('settings.index');
+        // Settings & Actions
+        Route::get('/settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('settings.index');
+        Route::post('/settings/clear-cache', [\App\Http\Controllers\Admin\SettingController::class, 'clearCache'])->name('settings.clear_cache');
+        Route::post('/settings/export-db', [\App\Http\Controllers\Admin\SettingController::class, 'exportDb'])->name('settings.export_db');
     });
 
     // User Routes
@@ -52,7 +59,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('requests', \App\Http\Controllers\User\RequestController::class)->except(['edit', 'update', 'destroy']);
         
         // Messages
-        Route::get('/messages', function() { return view('user.messages'); })->name('messages.index');
+        Route::get('/messages', [\App\Http\Controllers\MessageController::class, 'index'])->name('messages.index');
+        Route::post('/messages', [\App\Http\Controllers\MessageController::class, 'store'])->name('messages.store');
 
         // Notifications placeholder
         Route::get('/notifications', function() { return view('user.notifications'); })->name('notifications.index');
