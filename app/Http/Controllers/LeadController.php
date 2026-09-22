@@ -14,7 +14,7 @@ class LeadController extends Controller
             'phone' => 'nullable|string|max:20',
             'email' => 'nullable|email|max:100',
             'platform' => 'required|in:TikTok,YouTube,Both',
-            'target_country' => 'required|in:UK,Canada,Australia,New Zealand,UAE',
+            'target_country' => 'required|in:USA,UK,Canada,Australia,New Zealand,UAE',
             'message' => 'nullable|string|max:500',
         ]);
 

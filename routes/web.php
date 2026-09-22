@@ -9,6 +9,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () { return view('pages.about'); })->name('about');
+Route::get('/contact', function () { return view('pages.contact'); })->name('contact');
+Route::get('/terms', function () { return view('pages.terms'); })->name('terms');
+Route::get('/privacy', function () { return view('pages.privacy'); })->name('privacy');
+Route::get('/blog', function () { return view('pages.blog'); })->name('blog');
+Route::get('/payment-security', function () { return view('pages.payment-security'); })->name('payment-security');
+Route::get('/refund-policy', function () { return view('pages.refund-policy'); })->name('refund-policy');
+
 // Lead Form Submission (Public)
 Route::post('/leads', [\App\Http\Controllers\LeadController::class, 'store'])->name('leads.store');
 
