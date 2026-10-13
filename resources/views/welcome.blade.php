@@ -15,565 +15,18 @@
     <!-- Bootstrap 5.3 & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <style>
-        :root {
-            --sb-primary: #2563eb;
-            --sb-primary-hover: #1d4ed8;
-            --sb-primary-light: #eff6ff;
-            --sb-dark: #0b1329;
-            --sb-slate-800: #1e293b;
-            --sb-slate-600: #475569;
-            --sb-slate-100: #f1f5f9;
-            --sb-slate-50: #f8fafc;
-            --sb-emerald: #10b981;
-            --sb-amber: #f59e0b;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--sb-slate-50);
-            color: var(--sb-slate-800);
-            font-family: 'Inter', sans-serif;
-            font-size: 14.5px;
-            line-height: 1.55;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--sb-dark);
-            letter-spacing: -0.02em;
-        }
-
-        /* TIGHT COMPACT SECTION SPACING */
-        .section-tight {
-            padding: 45px 0;
-        }
-
-        /* ═══════════════ NAVBAR ═══════════════ */
-        .site-nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1030;
-            padding: 12px 0;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-            transition: all 0.3s ease;
-        }
-        .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-        
-        .logo-box {
-            display: inline-flex; align-items: center; gap: 10px;
-            text-decoration: none;
-        }
-        .logo-icon {
-            width: 40px; height: 40px; border-radius: 12px;
-            background: linear-gradient(135deg, #1a56db 0%, #3b82f6 50%, #06b6d4 100%);
-            color: #fff; display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 1rem; font-family: 'Plus Jakarta Sans', sans-serif;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-            letter-spacing: -0.5px; position: relative; overflow: hidden;
-        }
-        .logo-icon::after {
-            content: ''; position: absolute; top: -8px; right: -8px;
-            width: 20px; height: 20px; background: rgba(255,255,255,0.15);
-            border-radius: 50%;
-        }
-        .logo-text {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 900; font-size: 1.4rem; color: var(--sb-dark);
-            letter-spacing: -0.03em;
-        }
-        .logo-text span { color: var(--sb-primary); }
-        .logo-live-badge {
-            background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700;
-            padding: 3px 8px; border-radius: 20px; border: 1px solid #bbf7d0;
-            display: inline-flex; align-items: center; gap: 4px;
-        }
-        .live-dot {
-            width: 6px; height: 6px; border-radius: 50%; background: #16a34a;
-            animation: pulse-live 1.8s infinite;
-        }
-        @keyframes pulse-live { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
-
-        .nav-links { display: flex; align-items: center; gap: 4px; }
-        .nav-links a {
-            color: var(--sb-slate-600); font-size: 14px; font-weight: 600;
-            text-decoration: none; padding: 7px 12px; border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-        .nav-links a:hover { color: var(--sb-primary); background: var(--sb-primary-light); }
-
-        .nav-search {
-            position: relative; max-width: 220px; width: 100%;
-        }
-        .nav-search input {
-            background: var(--sb-slate-100); border: 1px solid #e2e8f0;
-            border-radius: 20px; padding: 7px 14px 7px 34px; font-size: 13px;
-            width: 100%; transition: all 0.2s ease; outline: none;
-        }
-        .nav-search input:focus { border-color: var(--sb-primary); background: #fff; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-        .nav-search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 13px; }
-
-        .nav-actions { display: flex; align-items: center; gap: 10px; }
-        .btn-login-link {
-            color: var(--sb-slate-800); font-size: 14px; font-weight: 600;
-            text-decoration: none; padding: 7px 14px; border-radius: 8px;
-            transition: all 0.2s;
-        }
-        .btn-login-link:hover { color: var(--sb-primary); background: rgba(37,99,235,0.06); }
-        
-        .btn-register-main {
-            background: var(--sb-primary); color: #fff; font-size: 14px; font-weight: 700;
-            padding: 8px 18px; border-radius: 10px; text-decoration: none; border: none;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); transition: all 0.2s ease;
-            display: inline-flex; align-items: center; gap: 6px;
-        }
-        .btn-register-main:hover {
-            background: var(--sb-primary-hover); transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); color: #fff;
-        }
-
-        /* ═══════════════ HERO SECTION ═══════════════ */
-        .hero-section {
-            padding: 110px 0 40px;
-            background: linear-gradient(180deg, #ffffff 0%, var(--sb-slate-50) 100%);
-            position: relative; overflow: hidden;
-        }
-
-        .hero-trust-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #eff6ff; border: 1px solid #bfdbfe;
-            padding: 5px 14px; border-radius: 30px;
-            font-size: 12px; font-weight: 700; color: #1d4ed8;
-            margin-bottom: 16px;
-        }
-        .hero-trust-badge .badge-dot {
-            width: 7px; height: 7px; border-radius: 50%; background: var(--sb-emerald);
-        }
-
-        .hero-title {
-            font-size: clamp(2.1rem, 4.2vw, 3.2rem);
-            font-weight: 900; line-height: 1.15;
-            color: var(--sb-dark); margin-bottom: 16px;
-        }
-        .hero-title .highlight-blue {
-            color: var(--sb-primary);
-            background: linear-gradient(120deg, var(--sb-primary), #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 15px; color: var(--sb-slate-600);
-            max-width: 520px; line-height: 1.65; margin-bottom: 24px;
-        }
-
-        .hero-cta-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
-        
-        .btn-hero-primary {
-            background: var(--sb-primary); color: #fff; font-size: 14.5px; font-weight: 700;
-            padding: 12px 28px; border-radius: 12px; text-decoration: none; display: inline-flex;
-            align-items: center; gap: 8px; box-shadow: 0 4px 18px rgba(37, 99, 235, 0.35);
-            transition: all 0.25s ease;
-        }
-        .btn-hero-primary:hover {
-            background: var(--sb-primary-hover); transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45); color: #fff;
-        }
-
-        .btn-hero-secondary {
-            background: #fff; color: var(--sb-dark); font-size: 14.5px; font-weight: 700;
-            padding: 12px 24px; border-radius: 12px; text-decoration: none; display: inline-flex;
-            align-items: center; gap: 8px; border: 1px solid #cbd5e1;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease;
-        }
-        .btn-hero-secondary:hover {
-            border-color: var(--sb-primary); color: var(--sb-primary);
-            background: var(--sb-primary-light); transform: translateY(-2px);
-        }
-
-        .hero-check-pills {
-            display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;
-        }
-        .check-pill {
-            font-size: 12.5px; font-weight: 600; color: #334155;
-            display: flex; align-items: center; gap: 6px;
-            background: #ffffff; border: 1px solid #e2e8f0; padding: 4px 12px; border-radius: 20px;
-        }
-        .check-pill i { color: var(--sb-emerald); font-size: 14px; }
-
-        .hero-social-proof {
-            display: flex; align-items: center; gap: 12px; padding-top: 12px;
-            border-top: 1px solid #e2e8f0; max-width: 480px;
-        }
-
-        /* COLORED BADGES STACK — CIRCLES */
-        .badge-country-us { background: #0f172a; color: #fff; }
-        .badge-country-uk { background: #2563eb; color: #fff; }
-        .badge-country-ca { background: #0d9488; color: #fff; }
-        .badge-country-au { background: #d97706; color: #fff; }
-
-        .country-stack-circle {
-            display: flex; gap: 6px;
-        }
-        /* Pill style for hero/audit sections */
-        .c-badge-pill {
-            font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px;
-            text-transform: uppercase; display: inline-block;
-        }
-        /* Circle style for footer region section */
-        .c-badge-circle {
-            width: 36px; height: 36px; border-radius: 50%;
-            font-size: 10.5px; font-weight: 800;
-            text-transform: uppercase; display: inline-flex;
-            align-items: center; justify-content: center;
-            flex-shrink: 0; border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .proof-info-text { font-size: 13px; color: var(--sb-slate-600); }
-        .proof-info-text strong { color: var(--sb-dark); font-weight: 700; }
-
-        /* HERO RIGHT GRAPHIC CARD */
-        .hero-widget-card {
-            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px;
-            box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.1); overflow: hidden;
-        }
-        .widget-browser-header {
-            background: #f1f5f9; padding: 10px 16px; border-bottom: 1px solid #e2e8f0;
-            display: flex; align-items: center; gap: 12px;
-        }
-        .browser-dots { display: flex; gap: 6px; }
-        .browser-dot { width: 9px; height: 9px; border-radius: 50%; }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        .browser-url-bar {
-            background: #fff; border: 1px solid #cbd5e1; border-radius: 6px;
-            padding: 3px 10px; font-size: 11px; color: #64748b; flex: 1;
-            display: flex; align-items: center; gap: 6px; font-family: monospace;
-        }
-
-        .widget-body { padding: 16px; }
-        
-        .widget-item-card {
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-            padding: 12px 14px; margin-bottom: 10px; transition: all 0.2s ease;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .widget-item-card:hover {
-            border-color: #93c5fd; background: #eff6ff; transform: translateX(2px);
-        }
-        .widget-item-left { display: flex; align-items: center; gap: 10px; }
-        .widget-item-icon {
-            width: 36px; height: 36px; border-radius: 9px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px; flex-shrink: 0;
-        }
-        .icon-tiktok { background: #000; color: #fff; }
-        .icon-youtube { background: #fef2f2; color: #ef4444; border: 1px solid #fee2e2; }
-
-        .widget-item-title { font-size: 13.5px; font-weight: 700; color: var(--sb-dark); margin-bottom: 2px; }
-        .widget-item-sub { font-size: 11.5px; color: #64748b; }
-        
-        .badge-status-green { background: #dcfce7; color: #166534; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
-        .badge-status-amber { background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
-
-        .widget-item-price { text-align: right; }
-        .price-val { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 800; color: var(--sb-primary); }
-        .price-time { font-size: 10.5px; color: #94a3b8; }
-
-        .widget-stats-bar {
-            background: var(--sb-dark); color: #fff; padding: 12px 16px;
-            display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 8px;
-        }
-        .stat-box-title { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; font-weight: 700; }
-        .stat-box-num { font-size: 14px; font-weight: 800; color: #38bdf8; margin-top: 2px; }
-
-        /* ═══════════════ SECTION HEADINGS ═══════════════ */
-        .section-header { margin-bottom: 30px; text-align: center; }
-        .section-badge {
-            display: inline-block; background: #eff6ff; color: var(--sb-primary);
-            font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-            padding: 4px 12px; border-radius: 20px; margin-bottom: 8px; border: 1px solid #bfdbfe;
-        }
-        .section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; margin-bottom: 6px; }
-        .section-desc { font-size: 14.5px; color: var(--sb-slate-600); max-width: 600px; margin: 0 auto; }
-
-        /* ═══════════════ PRODUCT CATALOG ═══════════════ */
-        .catalog-section { padding: 45px 0; background: #ffffff; border-top: 1px solid #e2e8f0; }
-
-        .product-card {
-            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px;
-            padding: 20px; transition: all 0.25s ease;
-            height: 100%; display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-        .product-card:hover {
-            border-color: var(--sb-primary); transform: translateY(-3px);
-            box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.15);
-        }
-
-        .product-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-        .card-flag-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 16px;
-            padding: 2px 8px; font-size: 11.5px; font-weight: 700; color: var(--sb-dark);
-        }
-        
-        .product-title { font-size: 17px; font-weight: 800; color: var(--sb-dark); margin-bottom: 4px; }
-        .product-subtitle { font-size: 12.5px; color: var(--sb-slate-600); margin-bottom: 14px; }
-
-        .product-specs-list { list-style: none; padding: 0; margin: 0 0 16px; }
-        .product-specs-list li {
-            font-size: 12.5px; color: var(--sb-slate-800); margin-bottom: 6px;
-            display: flex; align-items: center; gap: 6px;
-        }
-        .product-specs-list li i { color: var(--sb-emerald); font-size: 13px; }
-
-        .product-card-footer {
-            padding-top: 12px; border-top: 1px solid #f1f5f9;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .product-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; color: var(--sb-dark); }
-        .product-price span { font-size: 11px; color: #64748b; font-weight: 500; }
-
-        .btn-order-card {
-            background: var(--sb-primary); color: #fff; font-size: 12.5px; font-weight: 700;
-            padding: 7px 15px; border-radius: 8px; text-decoration: none; border: none;
-            transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 4px;
-        }
-        .btn-order-card:hover { background: var(--sb-primary-hover); color: #fff; }
-
-        .card-micro-info { font-size: 10.5px; color: #94a3b8; margin-top: 8px; display: flex; align-items: center; gap: 8px; }
-
-        /* ═══════════════ WHY CHOOSE US & DASHBOARD ═══════════════ */
-        .features-section { padding: 50px 0; background: var(--sb-slate-50); border-top: 1px solid #e2e8f0; }
-
-        .feature-box {
-            background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
-            padding: 22px 20px; margin-bottom: 14px; transition: all 0.25s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-        .feature-box:hover { border-color: #93c5fd; box-shadow: 0 8px 20px rgba(37,99,235,0.08); transform: translateY(-2px); }
-        
-        .feature-icon-box {
-            width: 42px; height: 42px; border-radius: 12px;
-            background: var(--sb-primary-light); color: var(--sb-primary);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px; margin-bottom: 12px;
-        }
-        .feature-title { font-size: 14.5px; font-weight: 700; color: var(--sb-dark); margin-bottom: 6px; line-height: 1.3; }
-        .feature-desc { font-size: 13px; color: var(--sb-slate-600); line-height: 1.6; }
-
-        /* Live Dashboard Card */
-        .dashboard-preview-card {
-            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px;
-            padding: 20px; box-shadow: 0 12px 28px -8px rgba(0,0,0,0.06);
-        }
-        .dashboard-header {
-            display: flex; align-items: center; justify-content: space-between;
-            padding-bottom: 12px; border-bottom: 1px solid #f1f5f9; margin-bottom: 14px;
-        }
-        .dash-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
-        .dash-stat-item {
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
-            padding: 10px; text-align: center;
-        }
-        .dash-stat-val { font-size: 16px; font-weight: 800; color: var(--sb-dark); }
-        .dash-stat-label { font-size: 10px; color: #64748b; font-weight: 600; }
-
-        .sales-activity-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-        .sales-activity-item {
-            display: flex; align-items: center; justify-content: space-between;
-            background: #f8fafc; padding: 8px 12px; border-radius: 8px; font-size: 11.5px;
-        }
-        
-        .whatsapp-banner-card {
-            background: linear-gradient(135deg, #0b1329 0%, #1e293b 100%);
-            border-radius: 14px; padding: 18px 20px; color: #fff; margin-top: 16px;
-            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-        }
-        .btn-wa-banner {
-            background: #25d366; color: #fff; font-size: 13px; font-weight: 700;
-            padding: 8px 16px; border-radius: 8px; text-decoration: none; border: none;
-            display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;
-        }
-        .btn-wa-banner:hover { background: #20ba5a; color: #fff; }
-
-        /* ═══════════════ TESTIMONIALS SECTION ═══════════════ */
-        .reviews-section { padding: 45px 0; background: #ffffff; border-top: 1px solid #e2e8f0; }
-
-        .review-card {
-            background: var(--sb-slate-50); border: 1px solid #e2e8f0;
-            border-radius: 14px; padding: 20px; height: 100%;
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-
-        .review-stars { color: var(--sb-amber); font-size: 13px; margin-bottom: 10px; }
-        .review-text { font-size: 13.5px; color: #334155; line-height: 1.6; margin-bottom: 16px; font-style: italic; }
-        
-        .review-user-info { display: flex; align-items: center; gap: 10px; }
-        .user-avatar-circle {
-            width: 36px; height: 36px; border-radius: 50%;
-            background: var(--sb-primary); color: #fff; font-weight: 700;
-            display: flex; align-items: center; justify-content: center; font-size: 13px;
-        }
-        .user-name { font-size: 13px; font-weight: 700; color: var(--sb-dark); }
-        .user-meta { font-size: 11px; color: #64748b; }
-
-        /* ═══════════════ FAQS SECTION ═══════════════ */
-        .faqs-section { padding: 60px 0; background: #fff; border-top: 1px solid #e2e8f0; }
-
-        .faq-main-title {
-            font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #b8860b; text-align: center;
-            text-transform: uppercase; letter-spacing: 0.04em;
-            margin-bottom: 40px;
-        }
-
-        /* 2-column custom FAQ grid matching image */
-        .faq-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 0 60px; border-top: 1px solid #e2e8f0;
-        }
-        @media (max-width: 767px) { .faq-grid { grid-template-columns: 1fr; gap: 0; } }
-
-        .faq-item {
-            border-bottom: 1px solid #e2e8f0; padding: 22px 0;
-        }
-        .faq-item-header {
-            display: flex; align-items: flex-start; justify-content: space-between;
-            cursor: pointer; gap: 14px;
-        }
-        .faq-item-header:hover .faq-item-question { color: #a07010; }
-        .faq-item-question {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 15.5px; font-weight: 700; color: #b8860b;
-            line-height: 1.35; flex: 1; transition: color 0.2s;
-        }
-        .faq-toggle-icon {
-            width: 26px; height: 26px; border-radius: 50%;
-            border: 2px solid #b8860b; color: #b8860b;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 16px; font-weight: 700; flex-shrink: 0; transition: all 0.25s;
-            user-select: none; margin-top: 2px;
-        }
-        .faq-toggle-icon.open { background: #b8860b; color: #fff; border-color: #b8860b; }
-        .faq-item-answer {
-            font-size: 14px; color: #475569; line-height: 1.7;
-            margin-top: 12px; display: none; padding-bottom: 4px;
-        }
-        .faq-item-answer.open { display: block; }
-
-        /* ═══════════════ AUDIT & FORM SECTION (MATCHING IMAGE 1) ═══════════════ */
-        .audit-section { padding: 45px 0; background: #ffffff; border-top: 1px solid #e2e8f0; }
-
-        .audit-form-card {
-            background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px;
-            padding: 28px; box-shadow: 0 16px 36px -10px rgba(0,0,0,0.08); position: relative;
-        }
-        .form-top-badge {
-            position: absolute; top: 20px; right: 20px;
-            background: #fef08a; color: #854d0e; font-size: 11px; font-weight: 800;
-            padding: 4px 10px; border-radius: 20px; text-transform: uppercase;
-        }
-
-        .form-label-custom {
-            font-size: 11.5px; font-weight: 700; color: var(--sb-slate-800);
-            letter-spacing: 0.2px; margin-bottom: 5px; display: block;
-        }
-        .form-control-custom, .form-select-custom {
-            background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px;
-            padding: 10px 12px; font-size: 13.5px; color: var(--sb-dark); width: 100%;
-            transition: all 0.2s ease; outline: none;
-        }
-        .form-control-custom:focus, .form-select-custom:focus {
-            border-color: var(--sb-primary); background: #fff;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-        }
-
-        /* YELLOW SUBMIT BUTTON MATCHING IMAGE 1 */
-        .btn-gold-submit {
-            width: 100%; background: #facc15; color: #1e293b;
-            font-size: 15px; font-weight: 800; padding: 13px; border-radius: 24px;
-            border: none; box-shadow: 0 4px 14px rgba(250, 204, 21, 0.4);
-            transition: all 0.25s ease; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-        }
-        .btn-gold-submit:hover { background: #eab308; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(250, 204, 21, 0.5); }
-
-        .audit-quote-box {
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-            padding: 18px; margin-top: 20px; font-style: italic; font-size: 13.5px; color: #334155;
-        }
-
-        .audit-info-light-box {
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
-            padding: 12px 14px; text-align: center; font-size: 12px; color: #64748b; margin-top: 14px;
-        }
-
-        .audit-pills-row {
-            display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px;
-        }
-        .audit-pill-item {
-            background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8;
-            font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
-        }
-
-        /* ═══════════════ FOOTER (UNIFIED DARK NAVY #0b1329) ═══════════════ */
-        .site-footer {
-            background: #0b1329; color: #94a3b8; padding: 50px 0 25px;
-            font-size: 13.5px; border-top: 1px solid #1e293b;
-        }
-        .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.35rem; color: #fff; text-decoration: none; }
-        .footer-heading { color: #fff; font-size: 13.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px; }
-        
-        .footer-links { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 8px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: #fff; }
-
-        .newsletter-input-box { display: flex; gap: 8px; margin-top: 12px; }
-        .newsletter-input-box input {
-            background: #1e293b; border: 1px solid #334155; color: #fff;
-            border-radius: 8px; padding: 8px 12px; font-size: 12.5px; flex: 1; outline: none;
-        }
-        .newsletter-input-box button {
-            background: var(--sb-primary); color: #fff; border: none; border-radius: 8px;
-            padding: 8px 16px; font-weight: 700; cursor: pointer; transition: background 0.2s;
-        }
-        .newsletter-input-box button:hover { background: var(--sb-primary-hover); }
-
-        .payment-badge {
-            background: #1e293b; border: 1px solid #334155; border-radius: 6px;
-            padding: 3px 8px; font-size: 10.5px; font-weight: 700; color: #cbd5e1;
-            display: inline-block; margin: 2px;
-        }
-
-        .footer-bottom {
-            padding-top: 24px; margin-top: 36px; border-top: 1px solid #1e293b;
-            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-            font-size: 12px; color: #64748b;
-        }
-
-        /* WA FLOAT BUTTON */
-        .wa-float-btn {
-            position: fixed; bottom: 20px; right: 20px; z-index: 1050;
-            width: 50px; height: 50px; border-radius: 50%; background: #25d366; color: #fff;
-            display: flex; align-items: center; justify-content: center; font-size: 24px;
-            box-shadow: 0 6px 20px rgba(37,211,102,0.45); text-decoration: none; transition: transform 0.25s;
-        }
-        .wa-float-btn:hover { transform: scale(1.1); color: #fff; }
-
-        @media (max-width: 991px) {
-            .nav-links, .nav-search { display: none; }
-            .hero-section { padding: 90px 0 30px; }
-        }
-    </style>
+    
+    <!-- Local Main Stylesheet (Extracted & Clean) -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
+    <!-- Instant Theme Init Script (Prevents flash of wrong theme) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('socialboost_theme') || 
+                (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 </head>
 <body>
 
@@ -602,6 +55,11 @@
         </div>
 
         <div class="nav-actions">
+            <!-- Theme Toggle Button (Light/Dark) -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle theme" title="Switch Theme">
+                <i class="bi bi-moon-stars" id="themeIcon"></i>
+            </button>
+
             @auth
                 <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : route('user.dashboard') }}" class="btn-register-main">
                     <i class="bi bi-grid-1x2-fill"></i> Dashboard
@@ -663,6 +121,20 @@
 
             <!-- Hero Right Interactive Widget -->
             <div class="col-lg-6">
+                <!-- Top WhatsApp Community Group Invite Banner -->
+                <div class="hero-wa-group-top mb-3">
+                    <a href="https://chat.whatsapp.com/CrinvvpCZymAhKYjhzEsRL?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" class="btn-wa-group-pill">
+                        <span class="wa-icon-bubble">
+                            <i class="bi bi-whatsapp"></i>
+                        </span>
+                        <div class="wa-text-col">
+                            <span class="wa-group-label">OFFICIAL WHATSAPP GROUP</span>
+                            <span class="wa-group-action">Join Community & Instant Updates <i class="bi bi-arrow-right-short"></i></span>
+                        </div>
+                        <span class="wa-live-badge"><span class="wa-live-dot"></span> LIVE</span>
+                    </a>
+                </div>
+
                 <div class="hero-widget-card">
                     <div class="widget-browser-header">
                         <div class="browser-dots">
@@ -676,24 +148,24 @@
                     </div>
 
                     <div class="widget-body">
-                        <!-- Widget Item 1 -->
-                        <div class="widget-item-card">
+                        <!-- Widget Item 1 (TikTok & Automation Course) -->
+                        <a href="https://chat.whatsapp.com/CrinvvpCZymAhKYjhzEsRL?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" class="widget-item-card text-decoration-none">
                             <div class="widget-item-left">
                                 <div class="widget-item-icon icon-tiktok">
-                                    <i class="bi bi-tiktok"></i>
+                                    <i class="bi bi-mortarboard-fill"></i>
                                 </div>
                                 <div>
                                     <div class="widget-item-title">
-                                        🇺🇸 TikTok USA <span class="badge-status-amber">Beta Eligible</span>
+                                        🎓 TikTok & Automation Course <span class="badge-status-green">Enroll Now</span>
                                     </div>
-                                    <div class="widget-item-sub">1000 followers • RPM $1.20+ • US IP</div>
+                                    <div class="widget-item-sub">Complete TikTok Monetization & Automation Course • 1-on-1 Guidance</div>
                                 </div>
                             </div>
                             <div class="widget-item-price">
-                                <div class="price-val">$85</div>
-                                <div class="price-time">2h delivery</div>
+                                <div class="price-val" style="color:#10b981;">Buy Course</div>
+                                <div class="price-time">Via WhatsApp <i class="bi bi-arrow-right-short"></i></div>
                             </div>
-                        </div>
+                        </a>
 
                         <!-- Widget Item 2 -->
                         <div class="widget-item-card">
@@ -1071,14 +543,14 @@
                     </div>
                 </div>
 
-                <!-- WhatsApp Consultation Card -->
+                <!-- WhatsApp Consultation & Community Card -->
                 <div class="whatsapp-banner-card">
                     <div>
-                        <h4 class="fw-bold fs-6 text-white mb-1">Need help choosing country?</h4>
-                        <p class="m-0 text-white-50" style="font-size:12.5px;">Free consultation via WhatsApp — USA/UK have highest RPM.</p>
+                        <h4 class="fw-bold fs-6 text-white mb-1">Join Our Official WhatsApp Group</h4>
+                        <p class="m-0 text-white-50" style="font-size:12.5px;">Get instant stock updates, creator tips & direct community support.</p>
                     </div>
-                    <a href="https://wa.me/923704635765" target="_blank" class="btn-wa-banner">
-                        <i class="bi bi-whatsapp fs-6"></i> Chat +92 370 4635765
+                    <a href="https://chat.whatsapp.com/CrinvvpCZymAhKYjhzEsRL?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" class="btn-wa-banner">
+                        <i class="bi bi-whatsapp fs-6"></i> Join WhatsApp Group
                     </a>
                 </div>
             </div>
@@ -1469,8 +941,8 @@
     </div>
 </footer>
 
-<!-- ═══════════════ FLOATING WHATSAPP BUTTON ═══════════════ -->
-<a href="https://wa.me/923704635765" target="_blank" class="wa-float-btn" title="Chat on WhatsApp">
+<!-- ═══════════════ FLOATING WHATSAPP BUTTON (GROUP INVITE) ═══════════════ -->
+<a href="https://chat.whatsapp.com/CrinvvpCZymAhKYjhzEsRL?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" class="wa-float-btn" title="Join WhatsApp Group">
     <i class="bi bi-whatsapp"></i>
 </a>
 
@@ -1581,6 +1053,36 @@
             icon.classList.add('open');
         }
     }
+
+    // Theme Toggle Functionality (Clean Light & Modern Dark)
+    (function initThemeToggle() {
+        const toggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        function updateIcon(theme) {
+            if (!themeIcon) return;
+            if (theme === 'dark') {
+                themeIcon.className = 'bi bi-sun-fill text-warning';
+                if (toggleBtn) toggleBtn.setAttribute('title', 'Switch to Clean Light Theme');
+            } else {
+                themeIcon.className = 'bi bi-moon-stars';
+                if (toggleBtn) toggleBtn.setAttribute('title', 'Switch to Modern Dark Theme');
+            }
+        }
+
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        updateIcon(currentTheme);
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                const activeTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('socialboost_theme', newTheme);
+                updateIcon(newTheme);
+            });
+        }
+    })();
 </script>
 
 </body>
