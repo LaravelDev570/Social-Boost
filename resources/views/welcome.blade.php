@@ -914,7 +914,9 @@
                 </p>
                 <div class="text-[10px] font-bold tracking-[0.12em] uppercase text-[#64748B]">Email Support</div>
                 <p class="m-0 mb-3" style="font-size:12.5px;">
-                    <i class="bi bi-envelope"></i>support@socialboost.com
+                    <a href="mailto:mzobair102@gmail.com" class="text-white text-decoration-none">
+                        <i class="bi bi-envelope"></i> mzobair102@gmail.com
+                    </a>
                 </p>
 
                 <div>

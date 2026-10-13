@@ -295,7 +295,7 @@
                 </ul>
             </div>
             <div class="sidebar-info">
-                <p><i class="bi bi-info-circle-fill" style="color:var(--primary)"></i> &nbsp;Questions? Contact us on <strong>WhatsApp</strong> or email <strong>support@socialboost.com</strong></p>
+                <p><i class="bi bi-info-circle-fill" style="color:var(--primary)"></i> &nbsp;Questions? Contact us on <strong>WhatsApp</strong> or email <strong>mzobair102@gmail.com</strong></p>
             </div>
         </aside>
 

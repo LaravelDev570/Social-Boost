@@ -32,7 +32,7 @@
                         <div class="col-md-6">
                             <label class="form-label text-light small fw-bold">Contact Email</label>
                             <input type="email" class="form-control form-control-sm bg-dark text-light border-secondary"
-                                   name="contact_email" value="support@socialboost.com">
+                                   name="contact_email" value="mzobair102@gmail.com">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-light small fw-bold">WhatsApp Number</label>

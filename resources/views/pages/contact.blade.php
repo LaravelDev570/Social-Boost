@@ -82,7 +82,7 @@
                 <div class="contact-details">
                     <h4>Email Support</h4>
                     <p>Average response time: 2-4 hours. Best for general inquiries and partnerships.</p>
-                    <a href="mailto:support@socialboost.com" class="contact-link">Email support@socialboost.com <i class="bi bi-arrow-right"></i></a>
+                    <a href="mailto:mzobair102@gmail.com" class="contact-link">Email mzobair102@gmail.com <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             

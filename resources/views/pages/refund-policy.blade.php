@@ -242,11 +242,11 @@
                     <div class="contact-card">
                         <div>
                             <h4>Need help? We're here for you.</h4>
-                            <p>+92 370 4635765 &nbsp;·&nbsp; support@socialboost.com</p>
+                            <p>+92 370 4635765 &nbsp;·&nbsp; mzobair102@gmail.com</p>
                         </div>
                         <div class="contact-btns">
                             <a href="https://wa.me/923704635765" class="contact-btn whatsapp"><i class="bi bi-whatsapp"></i> WhatsApp</a>
-                            <a href="mailto:support@socialboost.com" class="contact-btn email"><i class="bi bi-envelope"></i> Email</a>
+                            <a href="mailto:mzobair102@gmail.com" class="contact-btn email"><i class="bi bi-envelope"></i> Email</a>
                         </div>
                     </div>
                 </div>
