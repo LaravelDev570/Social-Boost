@@ -83,11 +83,11 @@
                 </div>
 
                 <h1 class="hero-title">
-                    YouTube & TikTok <span class="highlight-blue">Monetized</span> Accounts — USA, UK, CA, AU
+                   TikTok <span class="highlight-blue">Monetized</span> Accounts — USA, UK, CA, AU
                 </h1>
 
                 <p class="hero-subtitle">
-                    100% original accounts. TikTok Creativity Program Beta + YouTube Partner Program ready. USA/UK/Canada/Australia high RPM. Manual verification via JazzCash / Easypaisa. Delivered in 2 hours.
+                    100% original accounts. TikTok Creativity Program Beta ready. USA/UK/Canada/Australia high RPM. Manual verification via JazzCash / Easypaisa. Delivered in 2 hours.
                 </p>
 
                 <div class="hero-cta-group">
@@ -167,24 +167,43 @@
                             </div>
                         </a>
 
-                        <!-- Widget Item 2 -->
-                        <div class="widget-item-card">
+                        <!-- Widget Item 2 (Faceless TikTok Automation) -->
+                        <a href="https://chat.whatsapp.com/CrinvvpCZymAhKYjhzEsRL?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" class="widget-item-card text-decoration-none">
                             <div class="widget-item-left">
-                                <div class="widget-item-icon icon-youtube">
-                                    <i class="bi bi-youtube"></i>
+                                <div class="widget-item-icon" style="background:#000; color:#38bdf8; border:1px solid rgba(56,189,248,0.3);">
+                                    <i class="bi bi-robot"></i>
                                 </div>
                                 <div>
                                     <div class="widget-item-title">
-                                        🇺🇸 YouTube USA <span class="badge-status-green">Monetized</span>
+                                        🤖 100% Faceless TikTok Automation <span class="badge-status-green">Auto-Pilot</span>
                                     </div>
-                                    <div class="widget-item-sub">1000 Subs + 4000H • Aged 2018</div>
+                                    <div class="widget-item-sub">AI Scripting & Video Generator • Auto Daily Posting • Earn $2k–$5k/mo</div>
                                 </div>
                             </div>
                             <div class="widget-item-price">
-                                <div class="price-val">$149</div>
-                                <div class="price-time">2h delivery</div>
+                                <div class="price-val" style="color:#10b981;">Start System</div>
+                                <div class="price-time">Via WhatsApp <i class="bi bi-arrow-right-short"></i></div>
                             </div>
-                        </div>
+                        </a>
+
+                        <!-- Widget Item 3 (TikTok Viral Scaling & Cash Cow) -->
+                        <a href="https://chat.whatsapp.com/CrinvvpCZymAhKYjhzEsRL?s=sh&p=a&mlu=4&ilr=4" target="_blank" rel="noopener noreferrer" class="widget-item-card text-decoration-none">
+                            <div class="widget-item-left">
+                                <div class="widget-item-icon" style="background:#000; color:#f59e0b; border:1px solid rgba(245,158,11,0.3);">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                </div>
+                                <div>
+                                    <div class="widget-item-title">
+                                        ⚡ TikTok Viral Scaling & Cash Cow <span class="badge-status-amber">High RPM</span>
+                                    </div>
+                                    <div class="widget-item-sub">Multi-Account Management • US/UK Beta Monetization • Hands-Free</div>
+                                </div>
+                            </div>
+                            <div class="widget-item-price">
+                                <div class="price-val" style="color:#f59e0b;">Full Setup</div>
+                                <div class="price-time">Instant Access <i class="bi bi-arrow-right-short"></i></div>
+                            </div>
+                        </a>
 
                         <!-- Widget Item 3 -->
                         <div class="widget-item-card">
@@ -200,7 +219,7 @@
                                 </div>
                             </div>
                             <div class="widget-item-price">
-                                <div class="price-val">$70</div>
+                                <div class="price-val">$40</div>
                                 <div class="price-time">Instant delivery</div>
                             </div>
                         </div>
@@ -228,11 +247,302 @@
 </section>
 
 <!-- ═══════════════ PRODUCT CATALOG / SERVICES ═══════════════ -->
+
+
+<!-- ═══════════════ TIKTOK GROWTH SERVICES / FEATURE CARDS ═══════════════ -->
+<section class="feature-cards-section" id="growth-services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">🎯 TIKTOK GROWTH SERVICES</span>
+            <h2 class="section-title">Everything You Need to Grow on TikTok</h2>
+            <p class="section-desc">
+                From account setup to brand deals — we cover every step of your TikTok journey to maximize your revenue and growth.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Card 1: TikTok Account Setup -->
+            <div class="col-md-4 col-sm-6">
+                <div class="fc-card">
+                    <div class="fc-icon-box fc-icon-yellow">
+                        <i class="bi bi-tiktok"></i>
+                    </div>
+                    <h3 class="fc-title">TikTok Account Setup</h3>
+                    <p class="fc-desc">Learn to set up your TikTok profile for growth, including niche selection, branding, and optimization for followers.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Content Creation -->
+            <div class="col-md-4 col-sm-6">
+                <div class="fc-card">
+                    <div class="fc-icon-box fc-icon-blue">
+                        <i class="bi bi-camera-video-fill"></i>
+                    </div>
+                    <h3 class="fc-title">Content Creation</h3>
+                    <p class="fc-desc">Create viral videos using trending sounds, effects, and content strategies to maximize reach and engagement.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: TikTok Analytics -->
+            <div class="col-md-4 col-sm-6">
+                <div class="fc-card">
+                    <div class="fc-icon-box fc-icon-amber">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h3 class="fc-title">TikTok Analytics</h3>
+                    <p class="fc-desc">Understand analytics, track growth, identify trending content, and optimize for algorithm success.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Monetization Methods -->
+            <div class="col-md-4 col-sm-6">
+                <div class="fc-card">
+                    <div class="fc-icon-box fc-icon-blue">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+                    <h3 class="fc-title">Monetization Methods</h3>
+                    <p class="fc-desc">Earn through TikTok Creator Fund, live gifts, sponsored content, affiliate marketing, and brand partnerships.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: Audience Growth -->
+            <div class="col-md-4 col-sm-6">
+                <div class="fc-card">
+                    <div class="fc-icon-box fc-icon-yellow">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3 class="fc-title">Audience Growth</h3>
+                    <p class="fc-desc">Grow a loyal following using hashtags, collaborations, trends, and engagement tactics to boost your earning potential.</p>
+                </div>
+            </div>
+
+            <!-- Card 6: Brand Collaborations -->
+            <div class="col-md-4 col-sm-6">
+                <div class="fc-card">
+                    <div class="fc-icon-box fc-icon-blue">
+                        <i class="bi bi-megaphone-fill"></i>
+                    </div>
+                    <h3 class="fc-title">Brand Collaborations</h3>
+                    <p class="fc-desc">Learn how to pitch brands, negotiate deals, and secure sponsorships for sustainable TikTok income.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FULL CURRICULUM ═══════════════ -->
+<section class="curriculum-section" id="curriculum">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge" style="color:var(--sb-amber); border-color:var(--sb-amber); background:rgba(245,158,11,0.1);">📚 COURSE CONTENT</span>
+            <h2 class="section-title">Full <span style="color:var(--sb-amber);">Curriculum</span></h2>
+            <p class="section-desc">A complete roadmap to build, grow, and monetize TikTok accounts with viral content and multiple income streams.</p>
+        </div>
+
+        <div class="curriculum-list">
+
+            <!-- Module 01 -->
+            <div class="curr-item" onclick="toggleCurr(this)">
+                <div class="curr-header">
+                    <span class="curr-num">01</span>
+                    <div class="curr-info">
+                        <div class="curr-title">TikTok Fundamentals</div>
+                        <div class="curr-meta">6 Lessons</div>
+                    </div>
+                    <i class="bi bi-chevron-down curr-arrow"></i>
+                </div>
+                <div class="curr-body">
+                    <div class="curr-topics">
+                        <span>Platform Overview & Algorithm</span>
+                        <span>Profile Optimization</span>
+                        <span>Niche Selection</span>
+                        <span>Account Branding Basics</span>
+                        <span>Understanding the FYP</span>
+                        <span>Account Settings & Privacy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 02 -->
+            <div class="curr-item" onclick="toggleCurr(this)">
+                <div class="curr-header">
+                    <span class="curr-num">02</span>
+                    <div class="curr-info">
+                        <div class="curr-title">Content Creation & Scripting</div>
+                        <div class="curr-meta">7 Lessons</div>
+                    </div>
+                    <i class="bi bi-chevron-down curr-arrow"></i>
+                </div>
+                <div class="curr-body">
+                    <div class="curr-topics">
+                        <span>Viral Content Research</span>
+                        <span>Hook Writing (First 3 Seconds)</span>
+                        <span>Script Writing Techniques</span>
+                        <span>Storytelling for Short Videos</span>
+                        <span>Trend Hijacking</span>
+                        <span>Content Calendar</span>
+                        <span>A/B Testing Your Content</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 03 -->
+            <div class="curr-item" onclick="toggleCurr(this)">
+                <div class="curr-header">
+                    <span class="curr-num">03</span>
+                    <div class="curr-info">
+                        <div class="curr-title">Video Editing & Production</div>
+                        <div class="curr-meta">8 Lessons</div>
+                    </div>
+                    <i class="bi bi-chevron-down curr-arrow"></i>
+                </div>
+                <div class="curr-body">
+                    <div class="curr-topics">
+                        <span>CapCut Mastery</span>
+                        <span>InShot Pro Editing</span>
+                        <span>Canva for Thumbnails</span>
+                        <span>Sound & Music Selection</span>
+                        <span>Text & Captions</span>
+                        <span>Transitions & Effects</span>
+                        <span>Green Screen Techniques</span>
+                        <span>Export & Quality Settings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 04 -->
+            <div class="curr-item" onclick="toggleCurr(this)">
+                <div class="curr-header">
+                    <span class="curr-num">04</span>
+                    <div class="curr-info">
+                        <div class="curr-title">Growth & Virality Strategies</div>
+                        <div class="curr-meta">6 Lessons</div>
+                    </div>
+                    <i class="bi bi-chevron-down curr-arrow"></i>
+                </div>
+                <div class="curr-body">
+                    <div class="curr-topics">
+                        <span>Hashtag Strategy</span>
+                        <span>Posting Times & Frequency</span>
+                        <span>Collaborations & Duets</span>
+                        <span>Cross-Platform Promotion</span>
+                        <span>Engagement Tactics</span>
+                        <span>Analytics-Driven Growth</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 05 -->
+            <div class="curr-item" onclick="toggleCurr(this)">
+                <div class="curr-header">
+                    <span class="curr-num">05</span>
+                    <div class="curr-info">
+                        <div class="curr-title">TikTok Monetization</div>
+                        <div class="curr-meta">6 Lessons</div>
+                    </div>
+                    <i class="bi bi-chevron-down curr-arrow"></i>
+                </div>
+                <div class="curr-body">
+                    <div class="curr-topics">
+                        <span>Creator Fund & LIVE Gifts</span>
+                        <span>Affiliate Marketing</span>
+                        <span>Brand Sponsorships</span>
+                        <span>TikTok Shop</span>
+                        <span>Digital Products</span>
+                        <span>Multiple Income Streams</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 06 -->
+            <div class="curr-item" onclick="toggleCurr(this)">
+                <div class="curr-header">
+                    <span class="curr-num">06</span>
+                    <div class="curr-info">
+                        <div class="curr-title">Automation & Scaling</div>
+                        <div class="curr-meta">5 Lessons</div>
+                    </div>
+                    <i class="bi bi-chevron-down curr-arrow"></i>
+                </div>
+                <div class="curr-body">
+                    <div class="curr-topics">
+                        <span>Batch Content Creation</span>
+                        <span>Scheduling Tools</span>
+                        <span>Team & Outsourcing</span>
+                        <span>Managing Multiple Accounts</span>
+                        <span>Scaling to $10k/month</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ TOOLS & TECH STACK ═══════════════ -->
+<section class="tools-section" id="tools-stack">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge" style="color:var(--sb-amber); border-color:var(--sb-amber); background:rgba(245,158,11,0.1);">🛠 TECHNOLOGIES</span>
+            <h2 class="section-title">Tools & <span style="color:var(--sb-amber);">Tech Stack</span></h2>
+            <p class="section-desc">All platforms and tools you will master to grow and monetize your TikTok account.</p>
+        </div>
+
+        <div class="tools-grid">
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-tiktok" style="font-size:26px;color:#000;"></i></div>
+                <span class="tool-name">TikTok</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-scissors" style="font-size:24px;color:#00c4cc;"></i></div>
+                <span class="tool-name">CapCut</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-brush-fill" style="font-size:24px;color:#7c3aed;"></i></div>
+                <span class="tool-name">Canva</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-camera-fill" style="font-size:24px;color:#ef4444;"></i></div>
+                <span class="tool-name">InShot</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-bar-chart-fill" style="font-size:24px;color:#2563eb;"></i></div>
+                <span class="tool-name">Analytics</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-cash-coin" style="font-size:24px;color:#10b981;"></i></div>
+                <span class="tool-name">Creator Fund</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-person-badge-fill" style="font-size:24px;color:#8b5cf6;"></i></div>
+                <span class="tool-name">Sponsorships</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-link-45deg" style="font-size:26px;color:#059669;"></i></div>
+                <span class="tool-name">Affiliate Marketing</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-gift-fill" style="font-size:24px;color:#f43f5e;"></i></div>
+                <span class="tool-name">Live Gifts</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-graph-up-arrow" style="font-size:24px;color:#0ea5e9;"></i></div>
+                <span class="tool-name">Trend Discovery</span>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon-box"><i class="bi bi-hash" style="font-size:26px;color:#3b82f6;"></i></div>
+                <span class="tool-name">Hashtag Strategy</span>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="catalog-section" id="services">
     <div class="container">
         <div class="section-header">
-            <span class="section-badge">🏷 YOUTUBE & TIKTOK ACCOUNTS</span>
-            <h2 class="section-title">YouTube & TikTok Accounts We Provide</h2>
+            <span class="section-badge">🏷TIKTOK ACCOUNTS</span>
+            <h2 class="section-title">TikTok Accounts We Provide</h2>
             <p class="section-desc">
                 Original accounts for USA, UK, Canada, Australia & 100+ countries — No bots, manual verified, original email included.
             </p>
@@ -244,101 +554,7 @@
 
         <div class="row g-4" id="catalogCardsContainer">
             <!-- Row 1: YouTube Monetized -->
-            <div class="col-md-4 catalog-item-card" data-keywords="youtube usa monetized partner program ypp america high cpm">
-                <div class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <span class="card-flag-badge">🇺🇸 USA</span>
-                            <span class="badge bg-warning text-dark fw-bold rounded-pill px-3 py-1" style="font-size:10.5px;">Most Popular</span>
-                        </div>
-                        <h3 class="product-title">YouTube USA Monetized</h3>
-                        <p class="product-subtitle">Original YouTube Partner Program account with high CPM.</p>
-                        <ul class="product-specs-list">
-                            <li><i class="bi bi-check-circle-fill"></i> Monetization Enabled (YPP Ready)</li>
-                            <li><i class="bi bi-check-circle-fill"></i> USA IP • Original Email + Recovery</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Instant Delivery within 2 Hours</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Clean Record & No Strikes</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="product-card-footer">
-                            <div class="product-price">FROM $149 <span>/ account</span></div>
-                            <button class="btn-order-card" onclick="openOrderModal('YouTube', 'USA', 'YouTube USA Monetized')">
-                                <i class="bi bi-telephone-fill me-1"></i> Get Account
-                            </button>
-                        </div>
-                        <div class="card-micro-info">
-                            <span><i class="bi bi-clock-history"></i> 2h delivery</span>
-                            <span>• Original email</span>
-                            <span>• Manual verified</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 catalog-item-card" data-keywords="youtube uk monetized united kingdom britain europe high rpm">
-                <div class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <span class="card-flag-badge">🇬🇧 UK</span>
-                            <span class="badge bg-primary text-white fw-bold rounded-pill px-3 py-1" style="font-size:10.5px;">High RPM</span>
-                        </div>
-                        <h3 class="product-title">YouTube UK Monetized</h3>
-                        <p class="product-subtitle">UK Location channel with premium Tier-1 European CPM.</p>
-                        <ul class="product-specs-list">
-                            <li><i class="bi bi-check-circle-fill"></i> UK Location • Original Access</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Full Email + Recovery Credentials</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Aged Channel with Video History</li>
-                            <li><i class="bi bi-check-circle-fill"></i> 24/7 WhatsApp Support Included</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="product-card-footer">
-                            <div class="product-price">FROM $139 <span>/ account</span></div>
-                            <button class="btn-order-card" onclick="openOrderModal('YouTube', 'UK', 'YouTube UK Monetized')">
-                                <i class="bi bi-telephone-fill me-1"></i> Get Account
-                            </button>
-                        </div>
-                        <div class="card-micro-info">
-                            <span><i class="bi bi-clock-history"></i> 2h delivery</span>
-                            <span>• Original email</span>
-                            <span>• Manual verified</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 catalog-item-card" data-keywords="youtube canada monetized ca tier1 aged account">
-                <div class="product-card">
-                    <div>
-                        <div class="product-card-header">
-                            <span class="card-flag-badge">🇨🇦 Canada</span>
-                            <span class="badge bg-success text-white fw-bold rounded-pill px-3 py-1" style="font-size:10.5px;">Verified</span>
-                        </div>
-                        <h3 class="product-title">YouTube Canada Monetized</h3>
-                        <p class="product-subtitle">Canadian region YouTube account with high monetization stability.</p>
-                        <ul class="product-specs-list">
-                            <li><i class="bi bi-check-circle-fill"></i> CA Location • Clean History</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Aged Account (2019-2022)</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Manual Verification Screenshots</li>
-                            <li><i class="bi bi-check-circle-fill"></i> 7-Day Replacement Guarantee</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="product-card-footer">
-                            <div class="product-price">FROM $129 <span>/ account</span></div>
-                            <button class="btn-order-card" onclick="openOrderModal('YouTube', 'Canada', 'YouTube Canada Monetized')">
-                                <i class="bi bi-telephone-fill me-1"></i> Get Account
-                            </button>
-                        </div>
-                        <div class="card-micro-info">
-                            <span><i class="bi bi-clock-history"></i> 2h delivery</span>
-                            <span>• Original email</span>
-                            <span>• Manual verified</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
             <!-- Row 2: TikTok Accounts -->
             <div class="col-md-4 catalog-item-card" data-keywords="tiktok usa beta creativity program 1000 followers rpm america">
@@ -359,7 +575,7 @@
                     </div>
                     <div>
                         <div class="product-card-footer">
-                            <div class="product-price">FROM $85 <span>/ account</span></div>
+                            <div class="product-price">FROM $45 <span>/ account</span></div>
                             <button class="btn-order-card" onclick="openOrderModal('TikTok', 'USA', 'TikTok USA Creativity Beta')">
                                 <i class="bi bi-telephone-fill me-1"></i> Get Account
                             </button>
@@ -390,7 +606,7 @@
                     </div>
                     <div>
                         <div class="product-card-footer">
-                            <div class="product-price">FROM $75 <span>/ account</span></div>
+                            <div class="product-price">FROM $45 <span>/ account</span></div>
                             <button class="btn-order-card" onclick="openOrderModal('TikTok', 'UK', 'TikTok UK Creator Fund')">
                                 <i class="bi bi-telephone-fill me-1"></i> Get Account
                             </button>
@@ -421,7 +637,7 @@
                     </div>
                     <div>
                         <div class="product-card-footer">
-                            <div class="product-price">FROM $70 <span>/ account</span></div>
+                            <div class="product-price">FROM $40 <span>/ account</span></div>
                             <button class="btn-order-card" onclick="openOrderModal('TikTok', 'Australia', 'TikTok Canada / Australia')">
                                 <i class="bi bi-telephone-fill me-1"></i> Get Account
                             </button>
@@ -433,6 +649,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -948,6 +1165,62 @@
     <i class="bi bi-whatsapp"></i>
 </a>
 
+<!-- ═══════════════ ORDER CHOICE MODAL (Form vs WhatsApp) ═══════════════ -->
+<div id="orderChoiceModal" class="order-choice-modal-overlay" onclick="handleOrderModalBackdrop(event)">
+    <div class="order-choice-modal-dialog">
+        <div class="order-choice-modal-content">
+            <button type="button" class="order-modal-close" onclick="closeOrderChoiceModal()" aria-label="Close">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            <div class="text-center mb-3">
+                <span class="order-modal-badge"><i class="bi bi-lightning-charge-fill me-1"></i> Quick Order</span>
+                <h3 class="order-modal-title">Aap Kaise Order Karna Chahte Hain?</h3>
+                <p class="order-modal-subtitle">
+                    Account: <strong id="modalAccountTitle" style="color:var(--sb-primary);">TikTok Account</strong>
+                </p>
+                <div class="order-modal-hint">Neeche diye gaye options mein se select karein:</div>
+            </div>
+
+            <div class="order-options-grid">
+                <!-- Option 1: WhatsApp Contact -->
+                <button type="button" class="order-option-btn option-whatsapp" onclick="proceedViaWhatsApp()">
+                    <div class="order-option-icon wa-icon">
+                        <i class="bi bi-whatsapp"></i>
+                    </div>
+                    <div class="order-option-text">
+                        <div class="order-option-head">
+                            <span>WhatsApp Par Rabta Karein</span>
+                            <span class="badge-rec">Fastest • Recommended</span>
+                        </div>
+                        <p class="order-option-desc">Direct WhatsApp par baat karein. Instant 2-min reply, JazzCash/Easypaisa payment aur foran delivery payein.</p>
+                    </div>
+                    <i class="bi bi-arrow-right order-option-arrow"></i>
+                </button>
+
+                <!-- Option 2: Fill Form -->
+                <button type="button" class="order-option-btn option-form" onclick="proceedViaForm()">
+                    <div class="order-option-icon form-icon">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                    </div>
+                    <div class="order-option-text">
+                        <div class="order-option-head">
+                            <span>Website Form Fill Karein</span>
+                            <span class="badge-form">Online Request</span>
+                        </div>
+                        <p class="order-option-desc">Apni tafseelat online form mein darj karein. Hamari team 2 ghante ke andar aapse rabta karegi.</p>
+                    </div>
+                    <i class="bi bi-arrow-down-short order-option-arrow fs-4"></i>
+                </button>
+            </div>
+
+            <div class="order-modal-footer-note">
+                <i class="bi bi-shield-check text-success me-1"></i> 100% Original Accounts • Manual Verified • 24/7 Support
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap 5 JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1001,25 +1274,76 @@
         });
     }
 
-    // Prefill Order / Audit Form
+    // Order Choice Modal State & Handlers
+    let currentOrderData = {
+        platform: '',
+        country: '',
+        title: ''
+    };
+
     function openOrderModal(platform, country, title) {
+        currentOrderData = { platform, country, title };
+        const titleEl = document.getElementById('modalAccountTitle');
+        if (titleEl) titleEl.textContent = title;
+        
+        const modal = document.getElementById('orderChoiceModal');
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeOrderChoiceModal() {
+        const modal = document.getElementById('orderChoiceModal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function handleOrderModalBackdrop(e) {
+        if (e.target.id === 'orderChoiceModal') {
+            closeOrderChoiceModal();
+        }
+    }
+
+    // Option 1: WhatsApp
+    function proceedViaWhatsApp() {
+        const accountName = currentOrderData.title || 'TikTok Monetized Account';
+        closeOrderChoiceModal();
+        const msg = encodeURIComponent(`Hello! I want to order the "${accountName}" from SocialBoost. Please share the pricing, payment details (JazzCash/Easypaisa), and delivery process.`);
+        window.open(`https://wa.me/923704635765?text=${msg}`, '_blank');
+    }
+
+    // Option 2: Fill Website Form
+    function proceedViaForm() {
+        closeOrderChoiceModal();
         const platformSelect = document.getElementById('form_platform');
         const countrySelect = document.getElementById('form_country');
         const messageInput = document.getElementById('form_message');
         const formCard = document.getElementById('leadFormCard');
 
-        if (platformSelect) platformSelect.value = platform;
-        if (countrySelect) countrySelect.value = country;
-        if (messageInput) messageInput.value = 'Interested in: ' + title;
+        if (platformSelect && currentOrderData.platform) platformSelect.value = currentOrderData.platform;
+        if (countrySelect && currentOrderData.country) countrySelect.value = currentOrderData.country;
+        if (messageInput && currentOrderData.title) messageInput.value = 'Interested in: ' + currentOrderData.title;
 
         if (formCard) {
-            formCard.scrollIntoView({ behavior: 'smooth' });
-            formCard.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.3)';
+            formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            formCard.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.45), 0 20px 40px -10px rgba(37,99,235,0.2)';
+            formCard.style.transition = 'all 0.4s ease';
             setTimeout(() => {
                 formCard.style.boxShadow = '0 16px 36px -10px rgba(0,0,0,0.08)';
-            }, 1500);
+            }, 2500);
+
+            const nameInput = document.getElementById('form_name');
+            if (nameInput) setTimeout(() => nameInput.focus(), 600);
         }
     }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeOrderChoiceModal();
+    });
 
     // Handle Newsletter Form Subscription
     function handleNewsletterSubmit(e) {
@@ -1054,6 +1378,11 @@
             icon.textContent = '−';
             icon.classList.add('open');
         }
+    }
+
+    // Curriculum Accordion Toggle
+    function toggleCurr(item) {
+        item.classList.toggle('curr-open');
     }
 
     // Theme Toggle Functionality (Clean Light & Modern Dark)
